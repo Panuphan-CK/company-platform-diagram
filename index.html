@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#162942" />
+    <title>Company Platform · ภาพรวมแพลตฟอร์ม</title>
+    <link rel="stylesheet" href="styles.css?v=20261024-1" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand-lockup">
+          <span class="brand-mark" aria-hidden="true">CP</span>
+          <span class="brand-name">COMPANY PLATFORM</span>
+        </div>
+
+        <div class="topbar-actions">
+          <label class="search-box">
+            <span class="search-icon" data-icon="search" aria-hidden="true"></span>
+            <input id="systemSearch" type="search" placeholder="Search systems..." autocomplete="off" />
+            <kbd>⌘ K</kbd>
+          </label>
+          <button class="icon-button topbar-icon" type="button" aria-label="Notifications" data-action="notify">
+            <span data-icon="bell" aria-hidden="true"></span>
+          </button>
+          <button class="avatar-button" type="button" aria-label="Open profile">AD</button>
+        </div>
+      </header>
+
+      <aside class="sidebar" aria-label="Primary navigation">
+        <nav class="sidebar-nav">
+          <a class="nav-item is-active" href="#overview" data-nav="overview">
+            <span class="nav-icon" data-icon="home" aria-hidden="true"></span>
+            <span>Overview</span>
+          </a>
+          <a class="nav-item" href="#office" data-nav="office">
+            <span class="nav-icon" data-icon="building" aria-hidden="true"></span>
+            <span>Office</span>
+          </a>
+          <a class="nav-item" href="#audit" data-nav="audit">
+            <span class="nav-icon" data-icon="file" aria-hidden="true"></span>
+            <span>Audit</span>
+          </a>
+          <a class="nav-item" href="#hr" data-nav="hr">
+            <span class="nav-icon" data-icon="users" aria-hidden="true"></span>
+            <span>HR</span>
+          </a>
+          <a class="nav-item" href="#client" data-nav="client">
+            <span class="nav-icon" data-icon="user" aria-hidden="true"></span>
+            <span>Client</span>
+          </a>
+          <a class="nav-item" href="#admin" data-nav="admin">
+            <span class="nav-icon" data-icon="settings" aria-hidden="true"></span>
+            <span>Admin</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+          <div class="sidebar-label">Systems</div>
+          <button class="nav-item nav-button" type="button" data-action="systems">
+            <span class="nav-icon" data-icon="server" aria-hidden="true"></span>
+            <span>Systems</span>
+          </button>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <div class="page-header">
+          <div>
+            <h1 id="pageTitle">ภาพรวมแพลตฟอร์ม</h1>
+          </div>
+
+          <div class="page-actions">
+            <div class="view-switcher" role="group" aria-label="View mode">
+              <button class="view-button" type="button" data-view="diagram">Technical Map</button>
+              <button class="view-button" type="button" data-view="data">Data</button>
+              <button class="view-button is-active" type="button" data-view="relationships">ภาพรวมระบบ</button>
+            </div>
+            <button class="export-button" type="button" data-action="export">
+              <span data-icon="download" aria-hidden="true"></span>
+              <span>Export</span>
+              <span class="chevron" data-icon="chevron-down" aria-hidden="true"></span>
+            </button>
+          </div>
+        </div>
+
+        <div class="workspace" id="workspace">
+          <section class="canvas-card" aria-label="Architecture diagram">
+            <div class="canvas-viewport" id="canvasViewport">
+              <div class="canvas-toolbar" aria-label="Canvas controls">
+                <button class="canvas-tool" type="button" data-canvas-action="zoom-in" aria-label="Zoom in">
+                  <span data-icon="plus" aria-hidden="true"></span>
+                </button>
+                <button class="canvas-tool" type="button" data-canvas-action="zoom-out" aria-label="Zoom out">
+                  <span data-icon="minus" aria-hidden="true"></span>
+                </button>
+                <button class="canvas-tool" type="button" data-canvas-action="fit" aria-label="Fit diagram to screen">
+                  <span data-icon="fit" aria-hidden="true"></span>
+                </button>
+                <button class="canvas-tool" type="button" data-canvas-action="pan" aria-label="Pan diagram" aria-pressed="false">
+                  <span data-icon="hand" aria-hidden="true"></span>
+                </button>
+              </div>
+
+              <div class="zoom-readout" id="zoomReadout">100%</div>
+              <button class="reopen-inspector" id="reopenInspector" type="button" aria-label="Open inspector">
+                <span data-icon="panel-right" aria-hidden="true"></span>
+              </button>
+
+              <div class="diagram-context" id="diagramContext" hidden>
+                <button class="diagram-context-back" type="button" data-diagram-action="platform">
+                  <span data-icon="arrow-left" aria-hidden="true"></span>
+                  <span>Platform Overview</span>
+                </button>
+                <span class="diagram-context-separator" aria-hidden="true">/</span>
+                <strong id="diagramContextTitle">Office Module</strong>
+              </div>
+
+              <div class="map-layer" id="mapLayer">
+                <svg class="diagram-connectors" viewBox="0 0 920 760" role="img" aria-label="Connections between platform systems">
+                  <defs>
+                    <marker id="arrow-blue" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2778dc"></path>
+                    </marker>
+                    <marker id="arrow-teal" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                      <path d="M 0 0 L 10 5 L 0 10 z" fill="#3c9ea9"></path>
+                    </marker>
+                    <marker id="arrow-amber" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                      <path d="M 0 0 L 10 5 L 0 10 z" fill="#efa72b"></path>
+                    </marker>
+                  </defs>
+
+                  <path class="connector connector-blue" d="M 460 104 V 146" marker-end="url(#arrow-blue)"></path>
+
+                  <path class="connector connector-blue" d="M 460 220 V 264 H 110 V 300" marker-end="url(#arrow-blue)"></path>
+                  <path class="connector connector-blue" d="M 460 220 V 264 H 250 V 300" marker-end="url(#arrow-blue)"></path>
+                  <path class="connector connector-blue" d="M 460 220 V 264 H 390 V 300" marker-end="url(#arrow-blue)"></path>
+                  <path class="connector connector-blue" d="M 460 220 V 264 H 530 V 300" marker-end="url(#arrow-blue)"></path>
+                  <path class="connector connector-blue" d="M 460 220 V 264 H 670 V 300" marker-end="url(#arrow-blue)"></path>
+                  <path class="connector connector-blue" d="M 460 220 V 264 H 810 V 300" marker-end="url(#arrow-blue)"></path>
+
+                  <path class="connector connector-blue" d="M 110 388 V 428 H 460 V 462" marker-end="url(#arrow-blue)"></path>
+                  <path class="connector connector-blue" d="M 250 388 V 428 H 460 V 462" marker-end="url(#arrow-blue)"></path>
+                  <path class="connector connector-blue" d="M 390 388 V 428 H 460 V 462" marker-end="url(#arrow-blue)"></path>
+                  <path class="connector connector-blue" d="M 530 388 V 428 H 460 V 462" marker-end="url(#arrow-blue)"></path>
+                  <path class="connector connector-blue" d="M 670 388 V 428 H 460 V 462" marker-end="url(#arrow-blue)"></path>
+                  <path class="connector connector-blue" d="M 810 388 V 428 H 460 V 462" marker-end="url(#arrow-blue)"></path>
+
+                  <path class="connector connector-teal" d="M 460 536 V 570 H 124 V 604" marker-end="url(#arrow-teal)"></path>
+                  <path class="connector connector-teal" d="M 460 536 V 570 H 292 V 604" marker-end="url(#arrow-teal)"></path>
+                  <path class="connector connector-teal" d="M 460 536 V 570 H 460 V 604" marker-end="url(#arrow-teal)"></path>
+                  <path class="connector connector-amber" d="M 460 536 V 570 H 628 V 604" marker-end="url(#arrow-amber)"></path>
+                  <path class="connector connector-amber" d="M 460 536 V 570 H 796 V 604" marker-end="url(#arrow-amber)"></path>
+                </svg>
+
+                <div class="diagram-node node-system" data-node-id="public" style="--x: 310px; --y: 30px; --w: 300px; --h: 74px" tabindex="0" role="button" aria-label="company.com, open public website">
+                  <span class="node-symbol" data-icon="globe" aria-hidden="true"></span>
+                  <span class="node-copy">
+                    <strong>company.com</strong>
+                    <small>Public Website</small>
+                  </span>
+                </div>
+
+                <div class="diagram-node node-system" data-node-id="app" style="--x: 290px; --y: 146px; --w: 340px; --h: 74px" tabindex="0" role="button" aria-label="app.company.com, open login page">
+                  <span class="node-symbol" data-icon="lock" aria-hidden="true"></span>
+                  <span class="node-copy">
+                    <strong>app.company.com</strong>
+                    <small>Authentication (SSO)</small>
+                  </span>
+                </div>
+
+                <div class="diagram-node node-module is-selected" data-node-id="office" style="--x: 50px; --y: 300px; --w: 120px; --h: 88px" tabindex="0" role="button" aria-label="Office module">
+                  <span class="node-symbol" data-icon="building" aria-hidden="true"></span>
+                  <span class="node-copy"><strong>Office</strong><small>/office</small></span>
+                </div>
+                <div class="diagram-node node-module" data-node-id="audit" style="--x: 190px; --y: 300px; --w: 120px; --h: 88px" tabindex="0" role="button" aria-label="Audit module">
+                  <span class="node-symbol" data-icon="file" aria-hidden="true"></span>
+                  <span class="node-copy"><strong>Audit</strong><small>/audit</small></span>
+                </div>
+                <div class="diagram-node node-module" data-node-id="hr" style="--x: 330px; --y: 300px; --w: 120px; --h: 88px" tabindex="0" role="button" aria-label="HR module">
+                  <span class="node-symbol" data-icon="users" aria-hidden="true"></span>
+                  <span class="node-copy"><strong>HR</strong><small>/hr</small></span>
+                </div>
+                <div class="diagram-node node-module" data-node-id="client" style="--x: 470px; --y: 300px; --w: 120px; --h: 88px" tabindex="0" role="button" aria-label="Client Portal module">
+                  <span class="node-symbol" data-icon="user" aria-hidden="true"></span>
+                  <span class="node-copy"><strong>Client Portal</strong><small>/client</small></span>
+                </div>
+                <div class="diagram-node node-module" data-node-id="upload" style="--x: 610px; --y: 300px; --w: 120px; --h: 88px" tabindex="0" role="button" aria-label="Upload Portal module">
+                  <span class="node-symbol" data-icon="upload-cloud" aria-hidden="true"></span>
+                  <span class="node-copy"><strong>Upload Portal</strong><small>/upload</small></span>
+                </div>
+                <div class="diagram-node node-module" data-node-id="admin" style="--x: 750px; --y: 300px; --w: 120px; --h: 88px" tabindex="0" role="button" aria-label="Admin module">
+                  <span class="node-symbol" data-icon="settings" aria-hidden="true"></span>
+                  <span class="node-copy"><strong>Admin</strong><small>/admin</small></span>
+                </div>
+
+                <div class="diagram-node node-system node-api" data-node-id="api" style="--x: 335px; --y: 462px; --w: 250px; --h: 74px" tabindex="0" role="button" aria-label="Backend API">
+                  <span class="node-symbol" data-icon="layers" aria-hidden="true"></span>
+                  <span class="node-copy">
+                    <strong>Backend API</strong>
+                    <small>REST API / Internal Services</small>
+                  </span>
+                </div>
+
+                <div class="diagram-node node-data" data-node-id="postgres" style="--x: 49px; --y: 604px; --w: 150px; --h: 74px" tabindex="0" role="button" aria-label="PostgreSQL database">
+                  <span class="node-symbol" data-icon="database" aria-hidden="true"></span>
+                  <span class="node-copy"><strong>PostgreSQL</strong><small>Primary Database</small></span>
+                </div>
+                <div class="diagram-node node-data" data-node-id="storage" style="--x: 217px; --y: 604px; --w: 150px; --h: 74px" tabindex="0" role="button" aria-label="Object Storage">
+                  <span class="node-symbol" data-icon="database" aria-hidden="true"></span>
+                  <span class="node-copy"><strong>Object Storage</strong><small>Files / Documents</small></span>
+                </div>
+                <div class="diagram-node node-data" data-node-id="queue" style="--x: 385px; --y: 604px; --w: 150px; --h: 74px" tabindex="0" role="button" aria-label="Queue">
+                  <span class="node-symbol" data-icon="queue" aria-hidden="true"></span>
+                  <span class="node-copy"><strong>Queue</strong><small>Jobs / Events</small></span>
+                </div>
+                <div class="diagram-node node-worker" data-node-id="rpa" style="--x: 553px; --y: 604px; --w: 150px; --h: 74px" tabindex="0" role="button" aria-label="Python RPA">
+                  <span class="node-symbol" data-icon="gear" aria-hidden="true"></span>
+                  <span class="node-copy"><strong>Python RPA</strong><small>Background Workers</small></span>
+                </div>
+                <div class="diagram-node node-worker" data-node-id="ocr" style="--x: 721px; --y: 604px; --w: 150px; --h: 74px" tabindex="0" role="button" aria-label="OCR and Workers">
+                  <span class="node-symbol" data-icon="file-text" aria-hidden="true"></span>
+                  <span class="node-copy"><strong>OCR / Workers</strong><small>Document Processing</small></span>
+                </div>
+
+                <div class="diagram-legend" aria-label="Diagram legend">
+                  <div class="legend-item"><span class="legend-dot dot-system"></span><span><strong>System</strong><small>External system / core service</small></span></div>
+                  <div class="legend-item"><span class="legend-dot dot-module"></span><span><strong>Module</strong><small>Application module</small></span></div>
+                  <div class="legend-item"><span class="legend-dot dot-data"></span><span><strong>Data</strong><small>Data store / storage</small></span></div>
+                  <div class="legend-item"><span class="legend-dot dot-worker"></span><span><strong>Worker</strong><small>Background worker / processor</small></span></div>
+                </div>
+              </div>
+
+              <div class="map-layer office-map-layer" id="officeMapLayer" hidden>
+                <svg class="diagram-connectors" viewBox="0 0 920 760" role="img" aria-label="Office module workflow and service connections">
+                  <defs>
+                    <marker id="office-arrow-blue" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2778dc"></path>
+                    </marker>
+                    <marker id="office-arrow-teal" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                      <path d="M 0 0 L 10 5 L 0 10 z" fill="#3c9ea9"></path>
+                    </marker>
+                    <marker id="office-arrow-amber" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                      <path d="M 0 0 L 10 5 L 0 10 z" fill="#efa72b"></path>
+                    </marker>
+                  </defs>
+
+                  <path class="connector connector-blue" d="M 460 104 V 140" marker-end="url(#office-arrow-blue)"></path>
+
+                  <path class="connector connector-blue" d="M 460 204 V 228 H 104 V 250" marker-end="url(#office-arrow-blue)"></path>
+                  <path class="connector connector-blue" d="M 460 204 V 228 H 283 V 250" marker-end="url(#office-arrow-blue)"></path>
+                  <path class="connector connector-blue" d="M 460 204 V 228 H 462 V 250" marker-end="url(#office-arrow-blue)"></path>
+                  <path class="connector connector-blue" d="M 460 204 V 228 H 641 V 250" marker-end="url(#office-arrow-blue)"></path>
+                  <path class="connector connector-blue" d="M 460 204 V 228 H 820 V 250" marker-end="url(#office-arrow-blue)"></path>
+
+                  <path class="connector connector-blue" d="M 104 330 V 365 H 104 V 400" marker-end="url(#office-arrow-blue)"></path>
+                  <path class="connector connector-blue" d="M 283 330 V 365 H 641 V 400" marker-end="url(#office-arrow-blue)"></path>
+                  <path class="connector connector-blue" d="M 462 330 V 365 H 104 V 400" marker-end="url(#office-arrow-blue)"></path>
+                  <path class="connector connector-blue" d="M 641 330 V 365 H 283 V 400" marker-end="url(#office-arrow-blue)"></path>
+                  <path class="connector connector-blue" d="M 820 330 V 365 H 462 V 400" marker-end="url(#office-arrow-blue)"></path>
+
+                  <path class="connector connector-blue" d="M 104 480 V 512 H 460 V 535" marker-end="url(#office-arrow-blue)"></path>
+                  <path class="connector connector-blue" d="M 283 480 V 512 H 460 V 535" marker-end="url(#office-arrow-blue)"></path>
+                  <path class="connector connector-blue" d="M 462 480 V 512 H 460 V 535" marker-end="url(#office-arrow-blue)"></path>
+                  <path class="connector connector-amber" d="M 641 480 V 512 H 460 V 535" marker-end="url(#office-arrow-amber)"></path>
+                  <path class="connector connector-blue" d="M 820 480 V 512 H 460 V 535" marker-end="url(#office-arrow-blue)"></path>
+
+                  <path class="connector connector-teal" d="M 460 599 V 618 H 115 V 635" marker-end="url(#office-arrow-teal)"></path>
+                  <path class="connector connector-teal" d="M 460 599 V 618 H 335 V 635" marker-end="url(#office-arrow-teal)"></path>
+                  <path class="connector connector-amber" d="M 460 599 V 618 H 555 V 635" marker-end="url(#office-arrow-amber)"></path>
+                  <path class="connector connector-teal" d="M 460 599 V 618 H 775 V 635" marker-end="url(#office-arrow-teal)"></path>
+                </svg>
+
+                <div class="diagram-node node-system office-node-shell" data-office-node-id="shell" style="--x: 320px; --y: 34px; --w: 280px; --h: 70px" tabindex="0" role="button" aria-label="Office module">
+                  <span class="node-symbol" data-icon="building" aria-hidden="true"></span>
+                  <span class="node-copy"><strong>Office Module</strong><small>/office · Accounting operations</small></span>
+                </div>
+
+                <div class="diagram-node node-system node-api office-node-dashboard" data-office-node-id="dashboard" style="--x: 330px; --y: 140px; --w: 260px; --h: 64px" tabindex="0" role="button" aria-label="Office Dashboard">
+                  <span class="node-symbol" data-icon="home" aria-hidden="true"></span>
+                  <span class="node-copy"><strong>Office Dashboard</strong><small>/office/dashboard · Work queue</small></span>
+                </div>
+
+                <div class="diagram-node node-module office-node-core" data-office-node-id="clients" style="--x: 24px; --y: 250px; --w: 160px; --h: 80px" tabindex="0" role="button" aria-label="Client Master">
+                  <span class="node-symbol" data-icon="users" aria-hidden="true"></span>
+                  <span class="node-copy"><strong>Client Master</strong><small>/office/clients</small></span>
+                </div>
+                <div class="diagram-node node-module office-node-core" data-office-node-id="tasks" style="--x: 203px; --y: 250px; --w: 160px; --h: 80px" tabindex="0" role="button" aria-label="Tasks">
+                  <span class="node-symbol" data-icon="file" aria-hidden="true"></span>
+                  <span class="node-copy"><strong>Tasks</strong><small>/office/tasks</small></span>
+                </div>
+                <div class="diagram-node node-module office-node-core" data-office-node-id="documents" style="--x: 382px; --y: 250px; --w: 160px; --h: 80px" tabindex="0" role="button" aria-label="Document Inbox">
+                  <span class="node-symbol" data-icon="file-text" aria-hidden="true"></span>
+                  <span class="node-copy"><strong>Document Inbox</strong><small>/office/documents</small></span>
+                </div>
+                <div class="diagram-node node-module office-node-core" data-office-node-id="periods" style="--x: 561px; --y: 250px; --w: 160px; --h: 80px" tabindex="0" role="button" aria-label="Accounting Periods">
+                  <span class="node-symbol" data-icon="calendar" aria-hidden="true"></span>
+                  <span class="node-copy"><strong>Accounting Periods</strong><small>office.accounting_periods</small></span>
+                </div>
+                <div class="diagram-node node-module office-node-core" data-office-node-id="client360" style="--x: 740px; --y: 250px; --w: 160px; --h: 80px" tabindex="0" role="button" aria-label="Client 360">
+                  <span class="node-symbol" data-icon="user" aria-hidden="true"></span>
+                  <span class="node-copy"><strong>Client 360</strong><small>/office/clients/:id</small></span>
+                </div>
+
+                <div class="diagram-node node-module office-node-workflow" data-office-node-id="accounting" style="--x: 24px; --y: 400px; --w: 160px; --h: 80px" tabindex="0" role="button" aria-label="Accounting workflow">
+                  <span class="node-symbol" data-icon="database" aria-hidden="true"></span>
+                  <span class="node-copy"><strong>Accounting</strong><small>/office/accounting</small></span>
+                </div>
+                <div class="diagram-node node-module office-node-workflow" data-office-node-id="tax" style="--x: 203px; --y: 400px; --w: 160px; --h: 80px" tabindex="0" role="button" aria-label="Tax workflow">
+                  <span class="node-symbol" data-icon="file" aria-hidden="true"></span>
+                  <span class="node-copy"><strong>Tax</strong><small>/office/tax</small></span>
+                </div>
+                <div class="diagram-node node-module office-node-workflow" data-office-node-id="billing" style="--x: 382px; --y: 400px; --w: 160px; --h: 80px" tabindex="0" role="button" aria-label="Billing workflow">
+                  <span class="node-symbol" data-icon="receipt" aria-hidden="true"></span>
+                  <span class="node-copy"><strong>Billing</strong><small>/office/billing</small></span>
+                </div>
+                <div class="diagram-node node-module office-node-workflow" data-office-node-id="automation" style="--x: 561px; --y: 400px; --w: 160px; --h: 80px" tabindex="0" role="button" aria-label="Automation workflow">
+                  <span class="node-symbol" data-icon="gear" aria-hidden="true"></span>
+                  <span class="node-copy"><strong>Automation</strong><small>/office/automation</small></span>
+                </div>
+                <div class="diagram-node node-module office-node-workflow" data-office-node-id="reports" style="--x: 740px; --y: 400px; --w: 160px; --h: 80px" tabindex="0" role="button" aria-label="Office Reports">
+                  <span class="node-symbol" data-icon="chart" aria-hidden="true"></span>
+                  <span class="node-copy"><strong>Reports</strong><small>/office/reports</small></span>
+                </div>
+
+                <div class="diagram-node node-system node-api office-node-api" data-office-node-id="api" style="--x: 335px; --y: 535px; --w: 250px; --h: 64px" tabindex="0" role="button" aria-label="Office Backend API">
+                  <span class="node-symbol" data-icon="layers" aria-hidden="true"></span>
+                  <span class="node-copy"><strong>Backend API</strong><small>Office module boundary</small></span>
+                </div>
+
+                <div class="diagram-node node-data office-node-service" data-office-node-id="postgres" style="--x: 30px; --y: 635px; --w: 170px; --h: 64px" tabindex="0" role="button" aria-label="Office PostgreSQL data">
+                  <span class="node-symbol" data-icon="database" aria-hidden="true"></span>
+                  <span class="node-copy"><strong>PostgreSQL</strong><small>office schema</small></span>
+                </div>
+                <div class="diagram-node node-data office-node-service" data-office-node-id="storage" style="--x: 250px; --y: 635px; --w: 170px; --h: 64px" tabindex="0" role="button" aria-label="Office Object Storage">
+                  <span class="node-symbol" data-icon="database" aria-hidden="true"></span>
+                  <span class="node-copy"><strong>Object Storage</strong><small>Documents</small></span>
+                </div>
+                <div class="diagram-node node-worker office-node-service" data-office-node-id="queue" style="--x: 470px; --y: 635px; --w: 170px; --h: 64px" tabindex="0" role="button" aria-label="Office Queue and Workers">
+                  <span class="node-symbol" data-icon="queue" aria-hidden="true"></span>
+                  <span class="node-copy"><strong>Queue / Workers</strong><small>RPA · OCR</small></span>
+                </div>
+                <div class="diagram-node node-data office-node-service" data-office-node-id="audit" style="--x: 690px; --y: 635px; --w: 200px; --h: 64px" tabindex="0" role="button" aria-label="Office Audit Logs">
+                  <span class="node-symbol" data-icon="file-text" aria-hidden="true"></span>
+                  <span class="node-copy"><strong>Audit Logs</strong><small>RBAC activity trail</small></span>
+                </div>
+
+                <div class="diagram-legend office-legend" aria-label="Office diagram legend">
+                  <div class="legend-item"><span class="legend-dot dot-module"></span><span><strong>Core / workflow</strong><small>Office business capability</small></span></div>
+                  <div class="legend-item"><span class="legend-dot dot-data"></span><span><strong>Data</strong><small>Records and documents</small></span></div>
+                  <div class="legend-item"><span class="legend-dot dot-worker"></span><span><strong>Async</strong><small>Queue, RPA and OCR</small></span></div>
+                </div>
+              </div>
+
+              <div class="map-layer module-map-layer" id="moduleMapLayer" hidden aria-label="Module detail diagram"></div>
+
+              <div class="map-layer relationship-map-layer" id="relationshipMapLayer" data-map-width="1000" data-map-height="900" hidden aria-label="ภาพรวมระบบและการเชื่อมต่อทุกโมดูล"></div>
+
+              <div class="data-view" id="dataView" hidden>
+                <div class="data-view-header">
+                  <div>
+                    <h2>Platform components</h2>
+                    <p>Logical inventory of the architecture map.</p>
+                  </div>
+                    <span class="data-count" id="dataCount">14 components</span>
+                </div>
+                <div class="data-table-wrap">
+                  <table>
+                    <thead>
+                      <tr><th>Layer</th><th>Component</th><th>Route / role</th><th>Connected to</th></tr>
+                    </thead>
+                    <tbody id="dataTableBody"></tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <aside class="inspector" id="inspector" aria-label="Node inspector">
+            <div class="inspector-heading">
+              <div class="inspector-title-group">
+                <span class="inspector-icon" id="inspectorIcon" data-icon="building" aria-hidden="true"></span>
+                <div>
+                  <h2 id="inspectorTitle">Office</h2>
+                  <p id="inspectorType">Application module</p>
+                </div>
+              </div>
+              <button class="icon-button" id="closeInspector" type="button" aria-label="Close inspector">
+                <span data-icon="x" aria-hidden="true"></span>
+              </button>
+            </div>
+
+            <div class="inspector-tabs" role="tablist" aria-label="Inspector tabs">
+              <button class="inspector-tab is-active" type="button" role="tab" aria-selected="true" data-inspector-tab="details">Details</button>
+              <button class="inspector-tab" type="button" role="tab" aria-selected="false" data-inspector-tab="relationships">Relationships</button>
+            </div>
+
+            <div class="inspector-content" id="inspectorContent"></div>
+          </aside>
+        </div>
+      </main>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="app.js?v=20261024-1"></script>
+  </body>
+</html>
