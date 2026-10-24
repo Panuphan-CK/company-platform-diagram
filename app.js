@@ -1382,3 +1382,4 @@ if (window.matchMedia("(max-width: 840px)").matches) {
   workspace.classList.add("inspector-closed");
 }
 setView("relationships", false);
+requestAnimationFrame(() => requestAnimationFrame(fitDiagram));
