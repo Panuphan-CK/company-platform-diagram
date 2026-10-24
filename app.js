@@ -631,6 +631,8 @@ const diagramContextTitle = document.querySelector("#diagramContextTitle");
 let selectedNodeId = "office";
 let selectedOfficeNodeId = "shell";
 let selectedModuleNodeId = "shell";
+let selectedRelationshipNodeId = "landing";
+let relationshipNodesById = {};
 let activeModuleId = "audit";
 let inspectorMode = "platform";
 let diagramMode = "platform";
@@ -659,23 +661,45 @@ function nodeTitle(id) {
 }
 
 function renderInspector() {
-  const node = inspectorMode === "office" ? officeNodes[selectedOfficeNodeId] : inspectorMode === "module" ? getModuleNode(selectedModuleNodeId) : nodes[selectedNodeId];
+  const node = inspectorMode === "relationship" ? relationshipNodesById[selectedRelationshipNodeId] : inspectorMode === "office" ? officeNodes[selectedOfficeNodeId] : inspectorMode === "module" ? getModuleNode(selectedModuleNodeId) : nodes[selectedNodeId];
   if (!node) return;
 
   inspectorTitle.textContent = node.name;
-  inspectorType.textContent = node.typeLabel;
+  inspectorType.textContent = inspectorMode === "relationship" ? "รายละเอียดฟังก์ชัน" : node.typeLabel;
   inspectorIcon.dataset.icon = node.icon;
   inspectorIcon.innerHTML = iconSvg(node.icon);
 
   if (inspectorTab === "relationships") {
-    inspectorContent.innerHTML = inspectorMode === "office" ? renderOfficeRelationships(node) : inspectorMode === "module" ? renderModuleRelationships(node) : renderRelationships(node);
+    inspectorContent.innerHTML = inspectorMode === "relationship" ? renderRelationshipConnections(node) : inspectorMode === "office" ? renderOfficeRelationships(node) : inspectorMode === "module" ? renderModuleRelationships(node) : renderRelationships(node);
   } else {
-    inspectorContent.innerHTML = inspectorMode === "office" ? renderOfficeDetails(node) : inspectorMode === "module" ? renderModuleDetails(node) : renderDetails(node);
+    inspectorContent.innerHTML = inspectorMode === "relationship" ? renderRelationshipDetails(node) : inspectorMode === "office" ? renderOfficeDetails(node) : inspectorMode === "module" ? renderModuleDetails(node) : renderDetails(node);
   }
 
   inspectorContent.querySelectorAll("[data-icon]").forEach((element) => {
     element.innerHTML = iconSvg(element.dataset.icon);
   });
+}
+
+function renderFunctionSteps(steps) {
+  return steps?.length ? `<div class="detail-section"><h3>ขั้นตอนและความสามารถ</h3><ol class="function-steps">${steps.map((step) => `<li>${step}</li>`).join("")}</ol></div>` : "";
+}
+
+function renderRelationshipDetails(node) {
+  const detail = overviewDetails[node.id];
+  if (!detail) return "";
+  const target = node.action ? `<button class="open-link-button" type="button" data-open-diagram="${node.action}"><span data-icon="layers"></span><span>เปิดผังย่อย ${node.name}</span><span class="open-link-arrow" data-icon="arrow-right"></span></button>` : "";
+  const external = node.href ? `<button class="open-link-button" type="button" data-open-url="${node.href}"><span data-icon="external-link"></span><span>เปิด Landing Page จริง</span><span class="open-link-arrow" data-icon="arrow-right"></span></button>` : "";
+  return `<div class="detail-section"><span class="function-status">${detail.status}</span><p class="function-intro">${detail.purpose}</p></div>
+    <div class="detail-section"><h3>ใครใช้งาน</h3><div class="purpose-box">${detail.audience}</div></div>
+    ${renderFunctionSteps(detail.steps)}
+    <div class="detail-section"><h3>ข้อมูลที่เกี่ยวข้อง</h3><div class="purpose-box">${detail.data}</div></div>
+    <div class="detail-section"><h3>กฎสำคัญและสิทธิ์</h3><div class="purpose-box">${detail.rules}</div></div>
+    ${target || external ? `<div class="detail-section function-actions">${target}${external}</div>` : ""}`;
+}
+
+function renderRelationshipConnections(node) {
+  const links = overviewDetails[node.id]?.links || [];
+  return `<div class="detail-section"><h3>เชื่อมกับฟังก์ชันใด</h3><div class="relationship-list">${links.map((id) => `<button class="relationship-link" type="button" data-overview-link="${id}"><span>${relationshipNodesById[id]?.name || id}</span><span data-icon="arrow-right"></span></button>`).join("")}</div></div>`;
 }
 
 function renderOfficeDetails(node) {
@@ -703,6 +727,7 @@ function renderOfficeDetails(node) {
       <h3>What it does</h3>
       <div class="purpose-box">${node.purpose}</div>
     </div>
+    ${renderFunctionSteps(moduleFunctionSteps.office[selectedOfficeNodeId] || sharedTechnicalSteps[selectedOfficeNodeId])}
     ${related}
   `;
 }
@@ -803,11 +828,12 @@ function renderRelationshipMap() {
     { id: "shared-documents", name: "Shared Documents + Status", subtitle: "ผูกบริษัท/คำขอ · แจ้งทีม · ลูกค้าดูสถานะใน Portal", icon: "layers", className: "relationship-map-node node-data relationship-map-shared", x: 644, y: 685, w: 270, h: 80 },
     { id: "ai-classifier", name: "AI Document Classifier", subtitle: "คัดแยกเอกสาร · เชื่อม Upload/Document", badge: "อนาคต · ยังไม่ทำ", icon: "sparkles", className: "relationship-map-node node-worker relationship-map-future", x: 954, y: 685, w: 270, h: 80 },
   ];
+  relationshipNodesById = Object.fromEntries(relationshipNodes.map((node) => [node.id, node]));
 
   const nodeMarkup = relationshipNodes
     .map((node) => {
-      const actionAttributes = node.action
-        ? ` data-relationship-open="${node.action}" tabindex="0" role="button" aria-label="Open ${node.name} diagram"`
+      const actionAttributes = !node.href
+        ? ` data-overview-select="${node.id}" tabindex="0" role="button" aria-label="ดูรายละเอียด ${node.name}"`
         : "";
       const linkAttributes = node.href
         ? ` href="${node.href}" target="_blank" rel="noreferrer" aria-label="Open ${node.name} in a new tab"`
@@ -816,7 +842,7 @@ function renderRelationshipMap() {
       return `<${tagName} class="diagram-node ${node.className}" data-relationship-node-id="${node.id}" style="--x: ${node.x}px; --y: ${node.y}px; --w: ${node.w}px; --h: ${node.h}px"${actionAttributes}${linkAttributes}>
         <span class="node-symbol" data-icon="${node.icon}" aria-hidden="true"></span>
         <span class="node-copy"><strong>${node.name}</strong><small>${node.subtitle}</small>${node.badge ? `<em class="relationship-map-status">${node.badge}</em>` : ""}</span>
-      </${tagName}>`;
+      </${tagName}>${node.href ? `<button class="overview-info-button" type="button" data-overview-select="${node.id}" aria-label="ดูรายละเอียด ${node.name}" style="--x:${node.x + node.w - 29}px;--y:${node.y + 5}px">i</button>` : ""}`;
     })
     .join("");
 
@@ -855,6 +881,7 @@ function renderRelationshipMap() {
     </svg>
 
     <div class="relationship-map-section" style="--x: 24px; --y: 8px">01 · ENTRY & ACCESS</div>
+    <div class="relationship-map-guide">คลิกกล่องเพื่อดูรายละเอียด · ปุ่ม i สำหรับ Landing Page</div>
     <div class="relationship-map-section" style="--x: 24px; --y: 253px">02 · USER AREAS</div>
     <div class="relationship-map-section" style="--x: 24px; --y: 375px">03 · SHARED COMPANY & CONTRACT</div>
     <div class="relationship-map-section" style="--x: 24px; --y: 495px">04 · ACCOUNTING / AUDIT / HR SYSTEMS</div>
@@ -891,6 +918,7 @@ function renderModuleDetails(node) {
       <h3>What it does</h3>
       <div class="purpose-box">${node.purpose}</div>
     </div>
+    ${renderFunctionSteps(moduleFunctionSteps[activeModuleId]?.[selectedModuleNodeId] || sharedTechnicalSteps[selectedModuleNodeId])}
     ${related}
   `;
 }
@@ -1008,6 +1036,18 @@ function selectModuleNode(id, announce = true) {
   });
   renderInspector();
   if (announce) showToast(`${node.name} selected`);
+}
+
+function selectRelationshipNode(id) {
+  if (!relationshipNodesById[id]) return;
+  inspectorMode = "relationship";
+  selectedRelationshipNodeId = id;
+  setInspectorTab("details");
+  workspace.classList.remove("inspector-closed");
+  document.querySelectorAll("[data-relationship-node-id]").forEach((element) => {
+    element.classList.toggle("is-selected", element.dataset.relationshipNodeId === id);
+  });
+  requestAnimationFrame(() => setTimeout(() => fitDiagram(false), 220));
 }
 
 function setDiagramMode(mode, announce = true) {
@@ -1229,20 +1269,15 @@ function bindEvents() {
     selectModuleNode(nodeElement.dataset.moduleNodeId);
   });
 
-  const openRelationshipTarget = (target) => {
-    if (target === "office") openOfficeDiagram();
-    else if (moduleMaps[target]) openModuleDiagram(target);
-  };
-
   relationshipMapLayer.addEventListener("click", (event) => {
-    const nodeElement = event.target.closest("[data-relationship-open]");
-    if (nodeElement) openRelationshipTarget(nodeElement.dataset.relationshipOpen);
+    const nodeElement = event.target.closest("[data-overview-select]");
+    if (nodeElement) selectRelationshipNode(nodeElement.dataset.overviewSelect);
   });
   relationshipMapLayer.addEventListener("keydown", (event) => {
-    const nodeElement = event.target.closest("[data-relationship-open]");
+    const nodeElement = event.target.closest("[data-overview-select]");
     if (!nodeElement || (event.key !== "Enter" && event.key !== " ")) return;
     event.preventDefault();
-    openRelationshipTarget(nodeElement.dataset.relationshipOpen);
+    selectRelationshipNode(nodeElement.dataset.overviewSelect);
   });
 
   document.querySelectorAll("[data-nav]").forEach((navItem) => {
@@ -1309,6 +1344,13 @@ function bindEvents() {
     if (openLinkButton) openExternalUrl(openLinkButton.dataset.openUrl, nodes[selectedNodeId]?.externalLabel || nodes[selectedNodeId]?.name || "website");
     const copyButton = event.target.closest("[data-copy]");
     if (copyButton) copyText(copyButton.dataset.copy);
+    const diagramButton = event.target.closest("[data-open-diagram]");
+    if (diagramButton) {
+      if (diagramButton.dataset.openDiagram === "office") openOfficeDiagram();
+      else if (moduleMaps[diagramButton.dataset.openDiagram]) openModuleDiagram(diagramButton.dataset.openDiagram);
+    }
+    const overviewButton = event.target.closest("[data-overview-link]");
+    if (overviewButton) selectRelationshipNode(overviewButton.dataset.overviewLink);
     const relationshipButton = event.target.closest("[data-node-link]");
     if (relationshipButton) {
       openPlatformDiagram(false);
