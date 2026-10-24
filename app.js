@@ -786,9 +786,9 @@ function renderModuleMap(moduleId) {
 
 function renderRelationshipMap() {
   const relationshipNodes = [
-    { id: "landing", name: "Landing Page", subtitle: "ckaceaccount.com/landing-page · มีปุ่มเข้าสู่ระบบ", icon: "globe", className: "relationship-map-node node-system relationship-map-entry", href: "https://ckaceaccount.com/landing-page", x: 24, y: 40, w: 330, h: 82 },
-    { id: "app-shell", name: "App Shell · app.company.com", subtitle: "ตรวจสิทธิ์แล้วส่งเข้าพื้นที่ตามสิทธิ์ผู้ใช้", icon: "shield", className: "relationship-map-node node-system relationship-map-app", x: 460, y: 40, w: 380, h: 82 },
-    { id: "login", name: "Login", subtitle: "หน้าเดียว · ลูกค้าและทีมงาน", badge: "วางแผนไว้ · ยังไม่เปิดใช้", icon: "lock", className: "relationship-map-node node-worker relationship-map-planned relationship-map-login", x: 1020, y: 46, w: 240, h: 70 },
+    { id: "landing", name: "Landing Page", subtitle: "ckaceaccount.com/landing-page · มีปุ่มเข้าสู่ระบบ", icon: "globe", className: "relationship-map-node node-system relationship-map-entry", href: "https://ckaceaccount.com/landing-page", x: 24, y: 70, w: 330, h: 82 },
+    { id: "app-shell", name: "App Shell · app.company.com", subtitle: "ตรวจสิทธิ์แล้วส่งเข้าพื้นที่ตามสิทธิ์ผู้ใช้", icon: "shield", className: "relationship-map-node node-system relationship-map-app", x: 460, y: 70, w: 380, h: 82 },
+    { id: "login", name: "Login", subtitle: "หน้าเดียว · ลูกค้าและทีมงาน", badge: "วางแผนไว้ · ยังไม่เปิดใช้", icon: "lock", className: "relationship-map-node node-worker relationship-map-planned relationship-map-login", x: 1020, y: 76, w: 240, h: 70 },
     { id: "client-portal", name: "Client Portal", subtitle: "บริษัทเดียวเข้า Dashboard · หลายบริษัทเลือกก่อน · กำหนดสิทธิ์ผู้ใช้ได้", icon: "user", className: "relationship-map-node node-module relationship-map-channel", action: "client", x: 24, y: 165, w: 360, h: 80 },
     { id: "my-work", name: "My Work · Dashboard ทีมงาน", subtitle: "เห็นงานตามที่ได้รับ · หัวหน้าเห็นภาพรวมเฉพาะทีม", icon: "briefcase", className: "relationship-map-node node-module relationship-map-service", x: 460, y: 165, w: 360, h: 80 },
     { id: "team-admin", name: "Admin + หัวหน้าทีม", subtitle: "Admin ดูแลทุกทีม · หัวหน้าจัดงาน/สิทธิ์ในทีม · ดูแลผู้ใช้ บริษัท และ Template", icon: "settings", className: "relationship-map-node node-worker relationship-map-crosscut", action: "admin", x: 896, y: 165, w: 360, h: 80 },
@@ -828,14 +828,14 @@ function renderRelationshipMap() {
         <marker id="relationship-arrow-amber" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#efa72b"></path></marker>
       </defs>
 
-      <path class="connector connector-blue" d="M 354 81 H 460" marker-end="url(#relationship-arrow-blue)"></path>
-      <path class="connector connector-blue relationship-connector-dashed" d="M 1020 81 H 998 V 22 H 407 V 81" marker-end="url(#relationship-arrow-blue)"></path>
+      <path class="connector connector-blue" d="M 354 111 H 460" marker-end="url(#relationship-arrow-blue)"></path>
+      <path class="connector connector-blue relationship-connector-dashed" d="M 1020 111 H 998 V 42 H 407 V 111" marker-end="url(#relationship-arrow-blue)"></path>
 
-      <path class="connector connector-blue" d="M 650 122 V 150"></path>
-      <path class="connector connector-blue" d="M 204 150 H 1076"></path>
-      <path class="connector connector-blue" d="M 204 150 V 165" marker-end="url(#relationship-arrow-blue)"></path>
-      <path class="connector connector-blue" d="M 640 150 V 165" marker-end="url(#relationship-arrow-blue)"></path>
-      <path class="connector connector-blue" d="M 1076 150 V 165" marker-end="url(#relationship-arrow-blue)"></path>
+      <path class="connector connector-blue" d="M 650 152 V 160"></path>
+      <path class="connector connector-blue" d="M 204 160 H 1076"></path>
+      <path class="connector connector-blue" d="M 204 160 V 165" marker-end="url(#relationship-arrow-blue)"></path>
+      <path class="connector connector-blue" d="M 640 160 V 165" marker-end="url(#relationship-arrow-blue)"></path>
+      <path class="connector connector-blue" d="M 1076 160 V 165" marker-end="url(#relationship-arrow-blue)"></path>
 
       <path class="connector connector-teal relationship-connector-dashed" d="M 204 245 V 255 H 8 V 325 H 24" marker-end="url(#relationship-arrow-teal)"></path>
       <path class="connector connector-teal" d="M 384 325 H 460" marker-end="url(#relationship-arrow-teal)"></path>
@@ -854,7 +854,7 @@ function renderRelationshipMap() {
       <path class="connector connector-teal relationship-connector-dashed" d="M 779 650 V 670 H 8 V 205 H 24" marker-end="url(#relationship-arrow-teal)"></path>
     </svg>
 
-    <div class="relationship-map-section" style="--x: 24px; --y: 14px">01 · ENTRY & ACCESS</div>
+    <div class="relationship-map-section" style="--x: 840px; --y: 14px">01 · ENTRY & ACCESS</div>
     <div class="relationship-map-section" style="--x: 24px; --y: 138px">02 · USER AREAS</div>
     <div class="relationship-map-section" style="--x: 24px; --y: 260px">03 · SHARED COMPANY & CONTRACT</div>
     <div class="relationship-map-section" style="--x: 24px; --y: 380px">04 · ACCOUNTING / AUDIT / HR SYSTEMS</div>
