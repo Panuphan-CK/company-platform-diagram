@@ -687,7 +687,8 @@ function renderFunctionSteps(steps) {
 function renderRelationshipDetails(node) {
   const detail = overviewDetails[node.id];
   if (!detail) return "";
-  const target = node.action ? `<button class="open-link-button" type="button" data-open-diagram="${node.action}"><span data-icon="layers"></span><span>เปิดผังย่อย ${node.name}</span><span class="open-link-arrow" data-icon="arrow-right"></span></button>` : "";
+  const targetLabel = node.action === "upload" ? "เปิดผังพอร์ทัลอัปโหลดถาวร (อีกช่องทาง)" : `เปิดผังย่อย ${node.name}`;
+  const target = node.action ? `<button class="open-link-button" type="button" data-open-diagram="${node.action}"><span data-icon="layers"></span><span>${targetLabel}</span><span class="open-link-arrow" data-icon="arrow-right"></span></button>` : "";
   const external = node.href ? `<button class="open-link-button" type="button" data-open-url="${node.href}"><span data-icon="external-link"></span><span>เปิด Landing Page จริง</span><span class="open-link-arrow" data-icon="arrow-right"></span></button>` : "";
   return `<div class="detail-section"><span class="function-status">${detail.status}</span><p class="function-intro">${detail.purpose}</p></div>
     <div class="detail-section"><h3>ใครใช้งาน</h3><div class="purpose-box">${detail.audience}</div></div>
