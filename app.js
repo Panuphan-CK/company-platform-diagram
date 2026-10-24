@@ -1378,8 +1378,6 @@ hydrateIcons();
 renderInspector();
 renderDataTable();
 bindEvents();
-if (window.matchMedia("(max-width: 840px)").matches) {
-  workspace.classList.add("inspector-closed");
-}
+workspace.classList.add("inspector-closed");
 setView("relationships", false);
-requestAnimationFrame(() => requestAnimationFrame(() => fitDiagram(false)));
+requestAnimationFrame(() => requestAnimationFrame(() => setTimeout(() => fitDiagram(false), 220)));
