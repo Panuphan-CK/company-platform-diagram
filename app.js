@@ -1081,7 +1081,7 @@ function minimumZoom() {
   return window.innerWidth <= 640 ? 0.32 : 0.55;
 }
 
-function fitDiagram() {
+function fitDiagram(animate = true) {
   const availableWidth = Math.max(window.innerWidth <= 640 ? 260 : 360, canvasViewport.clientWidth - 48);
   const availableHeight = Math.max(420, canvasViewport.clientHeight - 48);
   const activeMap = [relationshipMapLayer, officeMapLayer, moduleMapLayer, mapLayer].find((layer) => layer && !layer.hidden);
@@ -1090,7 +1090,7 @@ function fitDiagram() {
   zoom = Math.max(minimumZoom(), Math.min(1, availableWidth / mapWidth, availableHeight / mapHeight));
   panX = 0;
   panY = 0;
-  updateTransform();
+  updateTransform(animate);
 }
 
 function setInspectorTab(tab) {
