@@ -678,6 +678,7 @@ function renderInspector() {
   inspectorContent.querySelectorAll("[data-icon]").forEach((element) => {
     element.innerHTML = iconSvg(element.dataset.icon);
   });
+  inspector.scrollTop = 0;
 }
 
 function renderFunctionSteps(steps) {
