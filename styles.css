@@ -574,7 +574,7 @@ input:focus-visible,
 
 .relationship-map-layer {
   width: 1000px;
-  height: 900px;
+  height: 690px;
 }
 
 .canvas-viewport.is-dragging .map-layer,
@@ -799,6 +799,74 @@ input:focus-visible,
 
 .relationship-map-node {
   text-align: center;
+}
+
+.relationship-map-app {
+  border-color: #5195df;
+  background: #f7fbff;
+}
+
+.relationship-map-app .node-copy {
+  align-items: center;
+}
+
+.relationship-map-login {
+  gap: 8px;
+  min-height: 70px;
+  padding: 8px 10px;
+}
+
+.relationship-map-login .node-symbol {
+  flex-basis: 22px;
+  width: 22px;
+  height: 22px;
+}
+
+.relationship-map-login .node-copy {
+  gap: 2px;
+}
+
+.relationship-map-login .node-copy strong {
+  font-size: 12px;
+}
+
+.relationship-map-login .node-copy small {
+  font-size: 9px;
+  line-height: 1.2;
+}
+
+.relationship-map-login .relationship-map-status {
+  margin-top: 1px;
+  padding: 1px 5px;
+  border-radius: 4px;
+  font-size: 8px;
+}
+
+.relationship-map-workspace {
+  gap: 9px;
+  padding: 10px;
+}
+
+.relationship-map-workspace .node-symbol {
+  flex-basis: 24px;
+  width: 24px;
+  height: 24px;
+}
+
+.relationship-map-workspace .node-copy {
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.relationship-map-workspace .node-copy strong {
+  font-size: 12px;
+  line-height: 1.2;
+  white-space: normal;
+}
+
+.relationship-map-workspace .node-copy small {
+  font-size: 9px;
+  line-height: 1.3;
 }
 
 .relationship-map-node:not([data-relationship-open]):not([href]) {
