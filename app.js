@@ -1133,7 +1133,7 @@ function setView(view, announce = true) {
     renderRelationshipMap();
     pageTitle.textContent = "ภาพรวมระบบ";
     diagramContext.hidden = true;
-    fitDiagram();
+    fitDiagram(announce);
     if (announce) showToast("System overview opened");
   } else {
     pageTitle.textContent = diagramMode === "office" ? "Office module map" : diagramMode === "module" ? moduleMaps[activeModuleId].title : "ภาพรวมแพลตฟอร์ม";
