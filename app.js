@@ -1197,7 +1197,7 @@ function filterNodes(query) {
   ];
   diagramNodes.forEach((nodeElement) => {
     const nodeId = nodeElement.dataset.nodeId || nodeElement.dataset.relationshipNodeId;
-    const node = nodes[nodeId] || officeNodes[nodeId] || getModuleNode(nodeId) || relationshipNodesById[nodeId];
+    const node = relationshipNodesById[nodeElement.dataset.relationshipNodeId] || nodes[nodeId] || officeNodes[nodeId] || getModuleNode(nodeId);
     const searchable = node ? `${node.name || ""} ${node.subtitle || ""} ${node.role || ""} ${node.route || ""} ${node.purpose || ""}`.toLowerCase() : "";
     const match = normalized.length > 0 && searchable.includes(normalized);
     nodeElement.classList.toggle("search-dim", normalized.length > 0 && !match);
