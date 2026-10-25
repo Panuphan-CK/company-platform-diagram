@@ -825,10 +825,10 @@ function renderRelationshipMap() {
     { id: "audit", name: "งานสอบบัญชี · Audit", subtitle: "ทำงานสอบที่นี่ แม้บริษัทเดียวกันมีงานบัญชีใน Office", icon: "file", className: "relationship-map-node node-system relationship-map-workspace", action: "audit", x: 243, y: 525, w: 197, h: 82 },
     { id: "employee-system", name: "ระบบพนักงาน · HR แยก", subtitle: "ข้อมูลทีมงาน • เปิดจากลิงก์ในแอป", icon: "users", className: "relationship-map-node node-system relationship-map-hr relationship-map-workspace", action: "hr", x: 460, y: 525, w: 197, h: 82 },
     { id: "leave-system", name: "ระบบลางาน · HR แยก", subtitle: "ยื่นลา • อนุมัติ • ติดตามสถานะ", icon: "calendar", className: "relationship-map-node node-system relationship-map-hr relationship-map-workspace", action: "hr", x: 677, y: 525, w: 197, h: 82 },
-    { id: "document-requests", name: "คำขอเอกสาร", subtitle: "สร้างจาก Template ตามบริการ", icon: "clipboard-list", className: "relationship-map-node node-module relationship-map-channel", action: "upload", x: 26, y: 652, w: 197, h: 80 },
-    { id: "upload-link", name: "ลิงก์อัปโหลด", subtitle: "ลิงก์คำขอและลิงก์บริษัทแยกกัน • ไม่ต้อง Login", icon: "upload-cloud", className: "relationship-map-node node-module relationship-map-channel", action: "upload", x: 243, y: 652, w: 197, h: 80 },
-    { id: "shared-documents", name: "เอกสารและสถานะ", subtitle: "ผูกบริษัท/คำขอ • แจ้งทีม • ลูกค้าดูใน Portal", icon: "layers", className: "relationship-map-node node-data relationship-map-shared", x: 460, y: 652, w: 197, h: 80 },
-    { id: "ai-classifier", name: "AI คัดแยกเอกสาร", subtitle: "วางแผนเชื่อมกับ Upload/Document", badge: "อนาคต • ยังไม่ทำ", icon: "sparkles", className: "relationship-map-node node-worker relationship-map-future", x: 677, y: 652, w: 197, h: 80 },
+    { id: "document-requests", name: "คำขอเอกสาร", subtitle: "สร้างจาก Template ตามบริการ", icon: "clipboard-list", className: "relationship-map-node node-module relationship-map-channel", action: "upload", x: 26, y: 636, w: 197, h: 80 },
+    { id: "upload-link", name: "ลิงก์อัปโหลด", subtitle: "ลิงก์คำขอและลิงก์บริษัทแยกกัน • ไม่ต้อง Login", icon: "upload-cloud", className: "relationship-map-node node-module relationship-map-channel", action: "upload", x: 243, y: 636, w: 197, h: 80 },
+    { id: "shared-documents", name: "เอกสารและสถานะ", subtitle: "ผูกบริษัท/คำขอ • แจ้งทีม • ลูกค้าดูใน Portal", icon: "layers", className: "relationship-map-node node-data relationship-map-shared", x: 460, y: 636, w: 197, h: 80 },
+    { id: "ai-classifier", name: "AI คัดแยกเอกสาร", subtitle: "วางแผนเชื่อมกับ Upload/Document", badge: "อนาคต • ยังไม่ทำ", icon: "sparkles", className: "relationship-map-node node-worker relationship-map-future", x: 677, y: 636, w: 197, h: 80 },
   ];
   relationshipNodesById = Object.fromEntries(relationshipNodes.map((node) => [node.id, node]));
 
@@ -874,21 +874,21 @@ function renderRelationshipMap() {
       <path class="connector connector-blue relationship-connector-dashed" d="M 650 183 H 888 V 513 H 558 V 525" marker-end="url(#relationship-arrow-blue)"></path>
       <path class="connector connector-blue" d="M 657 566 H 677" marker-end="url(#relationship-arrow-blue)"></path>
 
-      <path class="connector connector-teal" d="M 125 607 V 642 H 558 V 652" marker-end="url(#relationship-arrow-teal)"></path>
-      <path class="connector connector-teal" d="M 342 607 V 642 H 558" marker-end="url(#relationship-arrow-teal)"></path>
-      <path class="connector connector-blue" d="M 223 692 H 243" marker-end="url(#relationship-arrow-blue)"></path>
-      <path class="connector connector-teal" d="M 440 692 H 460" marker-end="url(#relationship-arrow-teal)"></path>
-      <path class="connector connector-amber relationship-connector-dashed" d="M 657 692 H 677" marker-end="url(#relationship-arrow-amber)"></path>
-      <path class="connector connector-teal" d="M 558 732 V 781 H 12 V 321 H 26" marker-end="url(#relationship-arrow-teal)"></path>
+      <path class="connector connector-teal" d="M 125 607 V 628 H 558 V 636" marker-end="url(#relationship-arrow-teal)"></path>
+      <path class="connector connector-teal" d="M 342 607 V 628 H 558" marker-end="url(#relationship-arrow-teal)"></path>
+      <path class="connector connector-blue" d="M 223 676 H 243" marker-end="url(#relationship-arrow-blue)"></path>
+      <path class="connector connector-teal" d="M 440 676 H 460" marker-end="url(#relationship-arrow-teal)"></path>
+      <path class="connector connector-amber relationship-connector-dashed" d="M 657 676 H 677" marker-end="url(#relationship-arrow-amber)"></path>
+      <path class="connector connector-teal" d="M 558 716 V 781 H 12 V 321 H 26" marker-end="url(#relationship-arrow-teal)"></path>
     </svg>
 
-    <div class="relationship-map-section" style="--x: 26px; --y: 12px">หน้าเว็บไซต์และทางเข้า</div>
+    <div class="relationship-map-section" style="--x: 290px; --y: 12px">หน้าเว็บไซต์และทางเข้า</div>
     <div class="relationship-map-guide">คลิกกล่องเพื่อดูหน้าที่และรายละเอียด</div>
     <div class="relationship-map-section" style="--x: 26px; --y: 240px">พื้นที่หลัง Login แยกตามสิทธิ์</div>
     <div class="relationship-map-section" style="--x: 26px; --y: 371px">ฐานบริษัทและสัญญาบริการ</div>
     <div class="relationship-map-label is-amber" style="--x: 300px; --y: 484px">ถ้าใช้ทั้งสองบริการ: งานบัญชี → Office • งานสอบ → Audit</div>
     <div class="relationship-map-section" style="--x: 26px; --y: 493px">ระบบทำงาน • HR เปิดแยก</div>
-    <div class="relationship-map-section" style="--x: 26px; --y: 614px">คำขอเอกสารและการติดตาม</div>
+    <div class="relationship-map-section" style="--x: 26px; --y: 612px">คำขอเอกสารและการติดตาม</div>
     <div class="relationship-map-legend" aria-label="ความหมายของเส้นเชื่อม">
       <span class="relationship-legend-item"><i class="relationship-legend-line is-blue"></i>เข้าใช้และส่งต่องาน</span>
       <span class="relationship-legend-item"><i class="relationship-legend-line is-teal"></i>ข้อมูลและเอกสารร่วม</span>
