@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f7faff" />
+    <title>CKACE Work · ตัวอย่างภาพรวมระบบ</title>
+    <link rel="stylesheet" href="demo.css?v=20261025-1" />
+  </head>
+  <body>
+    <div class="demo-shell" id="demoShell">
+      <aside class="sidebar" aria-label="เมนูหลัก">
+        <div class="sidebar-brand">
+          <div class="brand-mark" aria-hidden="true">C</div>
+          <div class="brand-copy"><strong>CKACE <span>Work</span></strong><small>งานบัญชี ที่เป็นระบบ</small></div>
+          <button class="icon-button collapse-button" id="collapseSidebar" type="button" aria-label="ยุบเมนู" aria-expanded="true" title="ยุบเมนู"><span data-icon="chevron-left"></span></button>
+        </div>
+        <div class="sidebar-context" title="ระบบตัวอย่าง">
+          <span class="context-mark" data-icon="grid"></span>
+          <span class="sidebar-label"><strong>พื้นที่ทำงาน</strong><small>ระบบตัวอย่าง</small></span>
+        </div>
+        <nav class="sidebar-nav" id="sidebarNav" aria-label="ฟังก์ชันระบบ"></nav>
+        <div class="sidebar-bottom">
+          <a class="diagram-link" href="index.html" title="เปิด Diagram" aria-label="เปิด Diagram"><span data-icon="network"></span><span class="sidebar-label">ดู Diagram</span><span class="sidebar-label" data-icon="arrow-up-right"></span></a>
+          <button class="profile-button" id="profileButton" type="button" aria-expanded="false" aria-controls="profileMenu" title="โปรไฟล์ตัวอย่าง">
+            <span class="avatar">CK</span><span class="profile-copy sidebar-label"><strong>ทีมงานตัวอย่าง</strong><small>เจ้าหน้าที่สำนักงาน</small></span><span class="sidebar-label" data-icon="more"></span>
+          </button>
+        </div>
+      </aside>
+
+      <div class="main-shell">
+        <header class="topbar">
+          <div class="topbar-leading">
+            <button class="app-switcher-button icon-button" id="appSwitcherButton" type="button" aria-label="เปลี่ยนแอป" aria-expanded="false" aria-controls="appSwitcher" title="เปลี่ยนแอป"><span data-icon="grid"></span></button>
+            <div class="topbar-current"><strong id="topbarApp">ภาพรวม</strong><small>CKACE Work</small></div>
+          </div>
+          <label class="global-search"><span data-icon="search"></span><input id="globalSearch" type="search" placeholder="ค้นหางาน ลูกค้า หรือเอกสาร..." aria-label="ค้นหาข้อมูลตัวอย่าง" /><kbd>Ctrl K</kbd></label>
+          <div class="topbar-actions"><span class="demo-badge">ตัวอย่างหน้าระบบ</span><button class="icon-button notification-button" id="notificationButton" type="button" title="กิจกรรมล่าสุด" aria-label="แสดงกิจกรรมล่าสุด"><span data-icon="bell"></span><i aria-hidden="true"></i></button></div>
+        </header>
+
+        <div class="floating-menu app-switcher" id="appSwitcher" hidden>
+          <div class="floating-title">เปลี่ยนพื้นที่ทำงาน</div>
+          <div class="app-grid" id="appGrid"></div>
+          <div class="floating-note">แสดงหน้าตัวอย่างตามโมดูลที่เลือก</div>
+        </div>
+        <div class="floating-menu profile-menu" id="profileMenu" hidden>
+          <strong>ทีมงานตัวอย่าง</strong><span>บทบาท: เจ้าหน้าที่สำนักงาน</span>
+          <button type="button" data-view="profile"><span data-icon="user"></span>ดูโปรไฟล์ตัวอย่าง</button>
+          <button type="button" data-view="permissions"><span data-icon="shield"></span>ดูสิทธิ์ตัวอย่าง</button>
+        </div>
+
+        <main class="content-area" id="contentArea" tabindex="-1"><div id="viewRoot"></div></main>
+      </div>
+    </div>
+    <div class="toast" id="demoToast" role="status" aria-live="polite"></div>
+    <script src="demo.js?v=20261025-1"></script>
+  </body>
+</html>
