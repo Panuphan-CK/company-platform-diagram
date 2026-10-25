@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#162942" />
     <title>Company Platform · ภาพรวมแพลตฟอร์ม</title>
-    <link rel="stylesheet" href="styles.css?v=20261024-14" />
+    <link rel="stylesheet" href="styles.css?v=20261025-16" />
   </head>
   <body>
     <div class="app-shell">
@@ -18,49 +18,49 @@
         <div class="topbar-actions">
           <label class="search-box">
             <span class="search-icon" data-icon="search" aria-hidden="true"></span>
-            <input id="systemSearch" type="search" placeholder="Search systems..." autocomplete="off" />
+            <input id="systemSearch" type="search" placeholder="ค้นหาระบบหรือโมดูล..." autocomplete="off" />
             <kbd>⌘ K</kbd>
           </label>
-          <button class="icon-button topbar-icon" type="button" aria-label="Notifications" data-action="notify">
+          <button class="icon-button topbar-icon" type="button" aria-label="การแจ้งเตือน" data-action="notify">
             <span data-icon="bell" aria-hidden="true"></span>
           </button>
-          <button class="avatar-button" type="button" aria-label="Open profile">AD</button>
+          <button class="avatar-button" type="button" aria-label="เปิดโปรไฟล์">AD</button>
         </div>
       </header>
 
-      <aside class="sidebar" aria-label="Primary navigation">
+      <aside class="sidebar" aria-label="เมนูหลัก">
         <nav class="sidebar-nav">
           <a class="nav-item is-active" href="#overview" data-nav="overview">
             <span class="nav-icon" data-icon="home" aria-hidden="true"></span>
-            <span>Overview</span>
+            <span>ภาพรวม</span>
           </a>
           <a class="nav-item" href="#office" data-nav="office">
             <span class="nav-icon" data-icon="building" aria-hidden="true"></span>
-            <span>Office</span>
+            <span>งานบัญชี</span>
           </a>
           <a class="nav-item" href="#audit" data-nav="audit">
             <span class="nav-icon" data-icon="file" aria-hidden="true"></span>
-            <span>Audit</span>
+            <span>งานสอบบัญชี</span>
           </a>
           <a class="nav-item" href="#hr" data-nav="hr">
             <span class="nav-icon" data-icon="users" aria-hidden="true"></span>
-            <span>HR</span>
+            <span>ระบบ HR</span>
           </a>
           <a class="nav-item" href="#client" data-nav="client">
             <span class="nav-icon" data-icon="user" aria-hidden="true"></span>
-            <span>Client</span>
+            <span>ลูกค้า</span>
           </a>
           <a class="nav-item" href="#admin" data-nav="admin">
             <span class="nav-icon" data-icon="settings" aria-hidden="true"></span>
-            <span>Admin</span>
+            <span>จัดการระบบ</span>
           </a>
         </nav>
 
         <div class="sidebar-bottom">
-          <div class="sidebar-label">Systems</div>
+          <div class="sidebar-label">ระบบ</div>
           <button class="nav-item nav-button" type="button" data-action="systems">
             <span class="nav-icon" data-icon="server" aria-hidden="true"></span>
-            <span>Systems</span>
+            <span>ระบบ</span>
           </button>
         </div>
       </aside>
@@ -72,30 +72,30 @@
           </div>
 
           <div class="page-actions">
-            <div class="view-switcher" role="group" aria-label="View mode">
-              <button class="view-button" type="button" data-view="diagram">Technical Map</button>
-              <button class="view-button" type="button" data-view="data">Data</button>
+            <div class="view-switcher" role="group" aria-label="รูปแบบมุมมอง">
+              <button class="view-button" type="button" data-view="diagram">ผังเชิงเทคนิค</button>
+              <button class="view-button" type="button" data-view="data">ข้อมูลระบบ</button>
               <button class="view-button is-active" type="button" data-view="relationships">ภาพรวมระบบ</button>
             </div>
             <button class="export-button" type="button" data-action="export">
               <span data-icon="download" aria-hidden="true"></span>
-              <span>Export</span>
+              <span>ส่งออก</span>
               <span class="chevron" data-icon="chevron-down" aria-hidden="true"></span>
             </button>
           </div>
         </div>
 
         <div class="workspace inspector-closed" id="workspace">
-          <section class="canvas-card" aria-label="Architecture diagram">
+          <section class="canvas-card" aria-label="ผังภาพรวมระบบ">
             <div class="canvas-viewport" id="canvasViewport">
-              <div class="canvas-toolbar" aria-label="Canvas controls">
+              <div class="canvas-toolbar" aria-label="เครื่องมือผังระบบ">
                 <button class="canvas-tool" type="button" data-canvas-action="zoom-in" aria-label="Zoom in">
                   <span data-icon="plus" aria-hidden="true"></span>
                 </button>
                 <button class="canvas-tool" type="button" data-canvas-action="zoom-out" aria-label="Zoom out">
                   <span data-icon="minus" aria-hidden="true"></span>
                 </button>
-                <button class="canvas-tool" type="button" data-canvas-action="fit" aria-label="Fit diagram to screen">
+                <button class="canvas-tool" type="button" data-canvas-action="fit" aria-label="จัดผังให้พอดีจอ">
                   <span data-icon="fit" aria-hidden="true"></span>
                 </button>
                 <button class="canvas-tool" type="button" data-canvas-action="pan" aria-label="Pan diagram" aria-pressed="false">
@@ -404,6 +404,6 @@
 
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
     <script src="function-details.js?v=20261024-14"></script>
-    <script src="app.js?v=20261024-15"></script>
+    <script src="app.js?v=20261025-16"></script>
   </body>
 </html>
