@@ -59,7 +59,7 @@ const dashboardTasks=[
   {id:'t5',name:'ตรวจสอบรายการปรับปรุง',secondary:'สรุปประเด็นงานสอบ',company:'บริษัทตัวอย่าง จ',companyCode:'จ',type:'งานสอบบัญชี',due:'2 พ.ย. 2569',status:'เสร็จแล้ว',owner:'ทีมสอบ B'}
 ];
 const activity=[
-  {name:'เอกสารภาษีเดือน ต.ค..pdf',detail:'บริษัทตัวอย่าง ก · ส่งผ่าน Portal',time:'10:24',icon:'file',color:'red'},
+  {name:'เอกสารภาษี ต.ค. 2569.pdf',detail:'บริษัทตัวอย่าง ก · ส่งผ่าน Portal',time:'10:24',icon:'file',color:'red'},
   {name:'ใบแจ้งหนี้เพิ่มเติม.xlsx',detail:'บริษัทตัวอย่าง ข · ลิงก์คำขอ',time:'09:18',icon:'file',color:'green'},
   {name:'กระดาษทำการรอบปี.pdf',detail:'บริษัทตัวอย่าง ค · งานสอบบัญชี',time:'เมื่อวาน',icon:'file',color:''}
 ];
@@ -91,7 +91,7 @@ function renderCell(row,key){const value=esc(row[key]||'—');if(key==='name')re
 function renderTable(columns,rows){const filtered=filterRows(rows);return `<div class="table-scroll"><table class="data-table"><thead><tr>${columns.map(([key,label])=>`<th scope="col">${esc(label)}</th>`).join('')}</tr></thead><tbody>${filtered.map(row=>`<tr>${columns.map(([key])=>`<td>${key==='name'?`<button class="row-select" type="button" data-row="${esc(row.id||row.name)}" aria-label="ดูรายละเอียด ${esc(row.name)}">${renderCell(row,key)}</button>`:renderCell(row,key)}</td>`).join('')}</tr>`).join('')}</tbody></table>${filtered.length?'':`<div class="empty-state">ไม่พบข้อมูลตัวอย่างที่ตรงกับคำค้นหา</div>`}</div><div class="table-footer">แสดง ${filtered.length} จาก ${rows.length} รายการ · ข้อมูลสมมติเพื่อดูตัวอย่างหน้าจอ</div>${state.selectedRow?renderSelected(rows):''}`}
 function renderSelected(rows){const row=rows.find(x=>(x.id||x.name)===state.selectedRow);if(!row)return'';return `<div class="selected-detail"><div><strong>${esc(row.name)}</strong><span>${esc(row.company||row.secondary||'')} · ${esc(row.status||'')}</span></div><button type="button" class="link-button" data-close-detail>ปิดรายละเอียด</button></div>`}
 function renderDashboard(){const filters=['ทั้งหมด','รอดำเนินการ','รอเอกสาร','กำลังดำเนินการ','ใกล้ครบกำหนด','เสร็จแล้ว'];const filteredCount=(status)=>status==='ทั้งหมด'?dashboardTasks.length:dashboardTasks.filter(task=>task.status===status).length;viewRoot.innerHTML=`${pageHeading('งานของฉัน','ติดตามงานและบริษัทที่ได้รับมอบหมาย · ข้อมูลตัวอย่าง')}
-  <section class="summary-strip" aria-label="สรุปงาน">${metricCard('งานทั้งหมด','18','ledger',0)}${metricCard('กำลังดำเนินการ','9','clock',1)}${metricCard('ใกล้ครบกำหนด','4','warning',2)}${metricCard('เสร็จแล้ววันนี้','5','check',3)}</section>
+  <section class="summary-strip" aria-label="สรุปงาน">${metricCard('งานในตัวอย่าง','5','ledger',0)}${metricCard('กำลังดำเนินการ','1','clock',1)}${metricCard('ใกล้ครบกำหนด','1','warning',2)}${metricCard('เสร็จแล้ว','1','check',3)}</section>
   <div class="dashboard-grid"><section class="panel task-panel"><div class="panel-heading"><div><h2>งานที่รับผิดชอบ</h2><p>รายการงานบัญชีและงานสอบบัญชีแยกตามสิทธิ์</p></div><div class="panel-actions"><button class="soft-button" type="button" data-action="filter-hint">${icon('filter')}กรองงาน</button></div></div>
   <div class="filter-tabs" role="tablist" aria-label="กรองสถานะงาน">${filters.map(f=>`<button type="button" role="tab" class="filter-tab ${state.filter===f?'is-active':''}" aria-selected="${state.filter===f}" data-filter="${esc(f)}">${esc(f)}<em>${filteredCount(f)}</em></button>`).join('')}</div>
   ${renderTable([['name','ชื่องาน'],['company','ลูกค้า'],['type','ประเภทงาน'],['due','กำหนดส่ง'],['status','สถานะ'],['owner','ผู้รับผิดชอบ']],dashboardTasks)}</section>
