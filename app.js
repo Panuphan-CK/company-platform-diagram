@@ -862,7 +862,7 @@ function renderRelationshipMap() {
     '<path class="connector connector-teal" d="M 444 326 H 456" marker-end="url(#relationship-arrow-teal)"></path>',
     '<path class="connector connector-amber" d="M 820 378 V 390 H 672 V 378" marker-end="url(#relationship-arrow-amber)"></path>',
     '<path class="connector connector-amber" d="M 672 378 V 402 H 80 V 378" marker-end="url(#relationship-arrow-amber)"></path>',
-    '<path class="connector connector-amber" d="M 672 378 V 414 H 228 V 378" marker-end="url(#relationship-arrow-amber)"></path>',
+    '<path class="connector connector-amber" d="M 672 378 V 408 H 228 V 378" marker-end="url(#relationship-arrow-amber)"></path>',
     '<path class="connector connector-teal" d="M 672 378 V 438 H 123 V 452" marker-end="url(#relationship-arrow-teal)"></path>',
     '<path class="connector connector-blue" d="M 226 494 H 238" marker-end="url(#relationship-arrow-blue)"></path>',
     '<path class="connector connector-teal" d="M 444 494 H 456" marker-end="url(#relationship-arrow-teal)"></path>',
