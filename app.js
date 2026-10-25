@@ -812,21 +812,22 @@ function renderModuleMap(moduleId) {
 }
 
 
+
 function renderRelationshipMap() {
   const relationshipNodes = [
-    { id: "landing", name: "Landing Page", subtitle: "หน้าแนะนำบริษัท • มีปุ่มเข้าสู่ระบบ", icon: "globe", className: "relationship-map-node node-system relationship-map-entry", href: "https://ckaceaccount.com/landing-page", info: true, x: 270, y: 34, w: 360, h: 70 },
-    { id: "app-shell", name: "account.ckaceaccount.com", subtitle: "Login → แสดงแอปตามสิทธิ์", badge: "วางแผนไว้ • ยังไม่เปิดใช้งาน", icon: "shield", className: "relationship-map-node node-system relationship-map-app", x: 270, y: 142, w: 360, h: 72 },
-    { id: "login", name: "เข้าสู่ระบบ · Login", subtitle: "ลูกค้าและทีมงาน • ตรวจสิทธิ์", badge: "ยังไม่เปิดใช้งาน", icon: "lock", className: "relationship-map-node node-worker relationship-map-planned relationship-map-login", x: 690, y: 87, w: 180, h: 72 },
-    { id: "office", name: "งานบัญชี", subtitle: "บัญชี • ภาษี • เงินเดือน", icon: "calculator", className: "relationship-map-node relationship-map-app-card node-system relationship-map-workspace", action: "office", x: 12, y: 274, w: 136, h: 104 },
-    { id: "audit", name: "งานสอบบัญชี", subtitle: "Engagement แยกจากบัญชี", icon: "file", className: "relationship-map-node relationship-map-app-card node-system relationship-map-workspace", action: "audit", x: 160, y: 274, w: 136, h: 104 },
-    { id: "employee-system", name: "ระบบพนักงาน", subtitle: "HR แยก • ข้อมูลทีม", icon: "users", className: "relationship-map-node relationship-map-app-card node-system relationship-map-hr", action: "hr", x: 308, y: 274, w: 136, h: 104 },
-    { id: "leave-system", name: "ระบบลางาน", subtitle: "HR แยก • ยื่น/อนุมัติ", icon: "calendar", className: "relationship-map-node relationship-map-app-card node-system relationship-map-hr", action: "hr", x: 456, y: 274, w: 136, h: 104 },
-    { id: "company-services", name: "ฐานข้อมูลลูกค้าและสัญญาบริการ", subtitle: "ข้อมูลบริษัทชุดเดียว • บริการแยกตามสัญญา", icon: "building", className: "relationship-map-node relationship-map-app-card node-data relationship-map-entity", x: 604, y: 274, w: 136, h: 104 },
-    { id: "business-settings", name: "ตั้งค่าธุรกิจ", subtitle: "แอป Admin • ผู้ใช้ • สิทธิ์ • Template", icon: "settings", className: "relationship-map-node relationship-map-app-card node-worker relationship-map-crosscut", x: 752, y: 274, w: 136, h: 104 },
-    { id: "document-requests", name: "คำขอเอกสาร", subtitle: "สร้างจาก Template ตามบริการ", icon: "clipboard-list", className: "relationship-map-node relationship-map-channel node-module", action: "upload", x: 20, y: 468, w: 206, h: 84 },
-    { id: "upload-link", name: "ลิงก์อัปโหลด", subtitle: "แยกตามคำขอ/บริษัท • ไม่ต้อง Login", icon: "upload-cloud", className: "relationship-map-node relationship-map-channel node-module", action: "upload", x: 238, y: 468, w: 206, h: 84 },
-    { id: "shared-documents", name: "เอกสารและสถานะ", subtitle: "ผูกบริษัท/งาน • แจ้งทีม • ดูสถานะใน Portal", icon: "layers", className: "relationship-map-node relationship-map-shared node-data", x: 456, y: 468, w: 206, h: 84 },
-    { id: "ai-classifier", name: "AI คัดแยกเอกสาร", subtitle: "วางแผนเชื่อมกับ Upload/Document", badge: "อนาคต • ยังไม่ทำ", icon: "sparkles", className: "relationship-map-node relationship-map-future node-worker", x: 674, y: 468, w: 206, h: 84 },
+    { id: "landing", name: "Landing Page", subtitle: "หน้าแนะนำบริษัท • มีปุ่มเข้าสู่ระบบ", icon: "globe", className: "relationship-map-node node-system relationship-map-entry", href: "https://ckaceaccount.com/landing-page", info: true, x: 173, y: 34, w: 360, h: 70 },
+    { id: "app-shell", name: "account.ckaceaccount.com", subtitle: "Login → แสดงแอปตามสิทธิ์", badge: "วางแผนไว้ • ยังไม่เปิดใช้งาน", icon: "shield", className: "relationship-map-node node-system relationship-map-app", x: 173, y: 142, w: 360, h: 72 },
+    { id: "login", name: "เข้าสู่ระบบ · Login", subtitle: "ลูกค้าและทีมงาน • ตรวจสิทธิ์", badge: "ยังไม่เปิดใช้งาน", icon: "lock", className: "relationship-map-node node-worker relationship-map-planned relationship-map-login", x: 593, y: 87, w: 180, h: 72 },
+    { id: "office", name: "งานบัญชี", subtitle: "บัญชี • ภาษี • เงินเดือน", icon: "calculator", className: "relationship-map-node relationship-map-app-card node-system relationship-map-workspace", action: "office", x: 20, y: 274, w: 122, h: 104 },
+    { id: "audit", name: "งานสอบบัญชี", subtitle: "Engagement แยกจากบัญชี", icon: "file", className: "relationship-map-node relationship-map-app-card node-system relationship-map-workspace", action: "audit", x: 156, y: 274, w: 122, h: 104 },
+    { id: "employee-system", name: "ระบบพนักงาน", subtitle: "HR แยก • ข้อมูลทีม", icon: "users", className: "relationship-map-node relationship-map-app-card node-system relationship-map-hr", action: "hr", x: 292, y: 274, w: 122, h: 104 },
+    { id: "leave-system", name: "ระบบลางาน", subtitle: "HR แยก • ยื่น/อนุมัติ", icon: "calendar", className: "relationship-map-node relationship-map-app-card node-system relationship-map-hr", action: "hr", x: 428, y: 274, w: 122, h: 104 },
+    { id: "company-services", name: "ฐานข้อมูลลูกค้า", subtitle: "สัญญาบริการ • เปิดตามวันที่", icon: "building", className: "relationship-map-node relationship-map-app-card node-data relationship-map-entity", x: 564, y: 274, w: 122, h: 104 },
+    { id: "business-settings", name: "ตั้งค่าธุรกิจ", subtitle: "ผู้ใช้ • สิทธิ์ • Template", badge: "Admin", icon: "settings", className: "relationship-map-node node-worker relationship-map-planned relationship-map-login relationship-map-settings", x: 720, y: 222, w: 160, h: 72 },
+    { id: "document-requests", name: "คำขอเอกสาร", subtitle: "สร้างจาก Template ตามบริการ", icon: "clipboard-list", className: "relationship-map-node relationship-map-channel node-module", action: "upload", x: 515, y: 430, w: 220, h: 74 },
+    { id: "upload-link", name: "ลิงก์อัปโหลด", subtitle: "แยกตามคำขอ/บริษัท • ไม่ต้อง Login", icon: "upload-cloud", className: "relationship-map-node relationship-map-channel node-module", action: "upload", x: 515, y: 534, w: 220, h: 74 },
+    { id: "shared-documents", name: "เอกสารและสถานะ", subtitle: "ผูกบริษัท/งาน • แจ้งทีม • ลูกค้าดูสถานะใน Portal", icon: "layers", className: "relationship-map-node relationship-map-shared node-data", x: 515, y: 638, w: 220, h: 74 },
+    { id: "ai-classifier", name: "AI คัดแยกเอกสาร", subtitle: "วางแผนเชื่อมกับ Upload/Document", badge: "อนาคต • ยังไม่ทำ", icon: "sparkles", className: "relationship-map-node relationship-map-app-card relationship-map-future node-worker", x: 754, y: 625, w: 126, h: 100 },
   ];
   relationshipNodesById = Object.fromEntries(relationshipNodes.map((node) => [node.id, node]));
 
@@ -843,35 +844,34 @@ function renderRelationshipMap() {
     .join("");
 
   const mapMarkup = [
-    '<svg class="diagram-connectors" viewBox="0 0 900 620" role="img" aria-label="Landing Page ผ่าน Login แล้วเข้าสู่ 6 แอป ได้แก่ งานบัญชี งานสอบบัญชี ระบบพนักงาน ระบบลางาน ฐานข้อมูลลูกค้าและสัญญาบริการ และตั้งค่าธุรกิจ">',
+    '<svg class="diagram-connectors" viewBox="0 0 900 810" role="img" aria-label="หลัง Login เข้าสู่ห้าแอปหลัก ตั้งค่าธุรกิจเป็นกล่องผู้ดูแลด้านข้าง และเอกสารไหลลงจากฐานข้อมูลลูกค้า">',
     '<defs>',
     '<marker id="relationship-arrow-blue" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#2778dc"></path></marker>',
     '<marker id="relationship-arrow-teal" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#3c9ea9"></path></marker>',
     '<marker id="relationship-arrow-amber" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#efa72b"></path></marker>',
     '</defs>',
-    '<path class="connector connector-blue" d="M 450 104 V 142" marker-end="url(#relationship-arrow-blue)"></path>',
-    '<path class="connector connector-blue relationship-connector-dashed" d="M 690 123 H 450" marker-end="url(#relationship-arrow-blue)"></path>',
-    '<path class="connector connector-blue" d="M 450 214 V 258"></path>',
-    '<path class="connector connector-blue" d="M 80 258 H 820"></path>',
-    '<path class="connector connector-blue" d="M 80 258 V 274" marker-end="url(#relationship-arrow-blue)"></path>',
-    '<path class="connector connector-blue" d="M 228 258 V 274" marker-end="url(#relationship-arrow-blue)"></path>',
-    '<path class="connector connector-blue" d="M 376 258 V 274" marker-end="url(#relationship-arrow-blue)"></path>',
-    '<path class="connector connector-blue" d="M 524 258 V 274" marker-end="url(#relationship-arrow-blue)"></path>',
-    '<path class="connector connector-blue" d="M 672 258 V 274" marker-end="url(#relationship-arrow-blue)"></path>',
-    '<path class="connector connector-blue" d="M 820 258 V 274" marker-end="url(#relationship-arrow-blue)"></path>',
-    '<path class="connector connector-teal" d="M 444 326 H 456" marker-end="url(#relationship-arrow-teal)"></path>',
-    '<path class="connector connector-amber" d="M 820 378 V 390 H 672 V 378" marker-end="url(#relationship-arrow-amber)"></path>',
-    '<path class="connector connector-amber" d="M 672 378 V 402 H 80 V 378" marker-end="url(#relationship-arrow-amber)"></path>',
-    '<path class="connector connector-amber" d="M 672 378 V 408 H 228 V 378" marker-end="url(#relationship-arrow-amber)"></path>',
-    '<path class="connector connector-teal" d="M 672 378 V 450 H 123 V 468" marker-end="url(#relationship-arrow-teal)"></path>',
-    '<path class="connector connector-blue" d="M 226 510 H 238" marker-end="url(#relationship-arrow-blue)"></path>',
-    '<path class="connector connector-teal" d="M 444 510 H 456" marker-end="url(#relationship-arrow-teal)"></path>',
-    '<path class="connector connector-amber relationship-connector-dashed" d="M 662 510 H 674" marker-end="url(#relationship-arrow-amber)"></path>',
+    '<path class="connector connector-blue" d="M 353 104 V 142" marker-end="url(#relationship-arrow-blue)"></path>',
+    '<path class="connector connector-blue relationship-connector-dashed" d="M 593 123 H 353" marker-end="url(#relationship-arrow-blue)"></path>',
+    '<path class="connector connector-blue" d="M 353 214 V 258"></path>',
+    '<path class="connector connector-blue" d="M 81 258 H 625"></path>',
+    '<path class="connector connector-blue" d="M 81 258 V 274" marker-end="url(#relationship-arrow-blue)"></path>',
+    '<path class="connector connector-blue" d="M 217 258 V 274" marker-end="url(#relationship-arrow-blue)"></path>',
+    '<path class="connector connector-blue" d="M 353 258 V 274" marker-end="url(#relationship-arrow-blue)"></path>',
+    '<path class="connector connector-blue" d="M 489 258 V 274" marker-end="url(#relationship-arrow-blue)"></path>',
+    '<path class="connector connector-blue" d="M 625 258 V 274" marker-end="url(#relationship-arrow-blue)"></path>',
+    '<path class="connector connector-blue relationship-connector-dashed" d="M 720 258 H 625" marker-end="url(#relationship-arrow-blue)"></path>',
+    '<path class="connector connector-teal" d="M 414 326 H 428" marker-end="url(#relationship-arrow-teal)"></path>',
+    '<path class="connector connector-amber" d="M 576 378 V 394 H 81 V 378" marker-end="url(#relationship-arrow-amber)"></path>',
+    '<path class="connector connector-amber" d="M 600 378 V 410 H 217 V 378" marker-end="url(#relationship-arrow-amber)"></path>',
+    '<path class="connector connector-teal" d="M 625 378 V 430" marker-end="url(#relationship-arrow-teal)"></path>',
+    '<path class="connector connector-blue" d="M 625 504 V 534" marker-end="url(#relationship-arrow-blue)"></path>',
+    '<path class="connector connector-teal" d="M 625 608 V 638" marker-end="url(#relationship-arrow-teal)"></path>',
+    '<path class="connector connector-amber relationship-connector-dashed" d="M 735 675 H 754" marker-end="url(#relationship-arrow-amber)"></path>',
     '</svg>',
-    '<div class="relationship-map-section" style="--x:270px;--y:10px">หน้าเว็บไซต์และทางเข้า</div>',
+    '<div class="relationship-map-section" style="--x:173px;--y:10px">หน้าเว็บไซต์และทางเข้า</div>',
     '<div class="relationship-map-guide">คลิกกล่องเพื่อดูหน้าที่และรายละเอียด</div>',
     '<div class="relationship-map-section" style="--x:18px;--y:236px">แอปหลัง Login • แสดงตามสิทธิ์</div>',
-    '<div class="relationship-map-section" style="--x:18px;--y:420px">เอกสารที่ใช้ร่วมกับงานบัญชี/สอบบัญชี</div>',
+    '<div class="relationship-map-section" style="--x:640px;--y:402px">เอกสารตามบริการ</div>',
     '<div class="relationship-map-legend" aria-label="ความหมายของเส้นเชื่อม">',
     '<span class="relationship-legend-item"><i class="relationship-legend-line is-blue"></i>เข้าใช้และส่งต่องาน</span>',
     '<span class="relationship-legend-item"><i class="relationship-legend-line is-teal"></i>ข้อมูลและเอกสารร่วม</span>',
@@ -883,7 +883,7 @@ function renderRelationshipMap() {
 
   relationshipMapLayer.innerHTML = mapMarkup;
   relationshipMapLayer.dataset.mapWidth = "900";
-  relationshipMapLayer.dataset.mapHeight = "620";
+  relationshipMapLayer.dataset.mapHeight = "810";
   hydrateIcons(relationshipMapLayer);
 }
 function renderModuleDetails(node) {
@@ -1111,6 +1111,7 @@ function updateTransform(animate = true) {
 }
 
 function minimumZoom() {
+  if (canvasViewport.clientWidth <= 640 && relationshipMapLayer && !relationshipMapLayer.hidden) return 0.28;
   return canvasViewport.clientWidth <= 640 ? 0.32 : 0.55;
 }
 
