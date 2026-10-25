@@ -574,7 +574,7 @@ input:focus-visible,
 
 .relationship-map-layer {
   width: 900px;
-  height: 620px;
+  height: 810px;
 }
 
 .canvas-viewport.is-dragging .map-layer,
@@ -833,6 +833,11 @@ input:focus-visible,
 .relationship-map-login .node-copy small {
   font-size: 9px;
   line-height: 1.2;
+}
+
+.relationship-map-settings {
+  border-color: #d6a234;
+  background: #fffdf7;
 }
 
 .relationship-map-login .relationship-map-status {
@@ -1834,7 +1839,7 @@ a.relationship-map-node {
 .relationship-map-legend {
   position: absolute;
   left: 26px;
-  top: 574px;
+  top: 758px;
   z-index: 2;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
