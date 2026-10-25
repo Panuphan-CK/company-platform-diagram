@@ -813,22 +813,22 @@ function renderModuleMap(moduleId) {
 
 function renderRelationshipMap() {
   const relationshipNodes = [
-    { id: "landing", name: "Landing Page", subtitle: "ckaceaccount.com/landing-page · มีปุ่มเข้าสู่ระบบ", icon: "globe", className: "relationship-map-node node-system relationship-map-entry", href: "https://ckaceaccount.com/landing-page", x: 460, y: 25, w: 380, h: 82 },
-    { id: "app-shell", name: "App Shell · app.company.com", subtitle: "ตรวจสิทธิ์แล้วส่งเข้าพื้นที่ตามสิทธิ์ผู้ใช้", icon: "shield", className: "relationship-map-node node-system relationship-map-app", x: 460, y: 165, w: 380, h: 82 },
-    { id: "login", name: "Login", subtitle: "หน้าเดียว · ลูกค้าและทีมงาน", badge: "วางแผนไว้ · ยังไม่เปิดใช้", icon: "lock", className: "relationship-map-node node-worker relationship-map-planned relationship-map-login", x: 1000, y: 101, w: 240, h: 70 },
-    { id: "client-portal", name: "Client Portal", subtitle: "บริษัทเดียวเข้า Dashboard · หลายบริษัทเลือกก่อน · กำหนดสิทธิ์ผู้ใช้ได้", icon: "user", className: "relationship-map-node node-module relationship-map-channel", action: "client", x: 24, y: 280, w: 360, h: 80 },
-    { id: "my-work", name: "My Work · Dashboard ทีมงาน", subtitle: "เห็นงานตามที่ได้รับ · หัวหน้าเห็นภาพรวมเฉพาะทีม", icon: "briefcase", className: "relationship-map-node node-module relationship-map-service", x: 460, y: 280, w: 360, h: 80 },
-    { id: "team-admin", name: "Admin + หัวหน้าทีม", subtitle: "Admin ดูแลทุกทีม · หัวหน้าจัดงาน/สิทธิ์ในทีม · ดูแลผู้ใช้ บริษัท และ Template", icon: "settings", className: "relationship-map-node node-worker relationship-map-crosscut", action: "admin", x: 896, y: 280, w: 360, h: 80 },
-    { id: "company-master", name: "Company Master · ฐานบริษัทลูกค้า", subtitle: "ข้อมูลบริษัทชุดเดียว · ผู้ใช้หลายคนและสิทธิ์แยกตามโมดูล", icon: "building", className: "relationship-map-node node-data relationship-map-entity", x: 24, y: 400, w: 360, h: 80 },
-    { id: "contracts", name: "Contract · เปิด/ปิดบริการ", subtitle: "อัปโหลดหรือสร้าง/เซ็นในระบบ · ปรับบริการตามวันที่สัญญา", icon: "file-signature", className: "relationship-map-node node-module relationship-map-shared", x: 460, y: 400, w: 360, h: 80 },
-    { id: "office", name: "ระบบบัญชี · Office", subtitle: "ทำบัญชี · ภาษี/เงินเดือน · วางระบบและจดทะเบียนเป็นงานย่อย", icon: "calculator", className: "relationship-map-node node-system relationship-map-workspace", action: "office", x: 24, y: 535, w: 270, h: 90 },
-    { id: "audit", name: "ระบบสอบบัญชี · Audit", subtitle: "ทำงานสอบที่นี่ รวมถึงลูกค้าที่ใช้บัญชีและสอบ", icon: "file", className: "relationship-map-node node-system relationship-map-workspace", action: "audit", x: 334, y: 535, w: 270, h: 90 },
-    { id: "employee-system", name: "ระบบพนักงาน", subtitle: "ข้อมูลพนักงาน · ระบบ HR แยก", icon: "users", className: "relationship-map-node node-system relationship-map-hr relationship-map-workspace", action: "hr", x: 644, y: 535, w: 270, h: 90 },
-    { id: "leave-system", name: "ระบบลางาน", subtitle: "ยื่นลา/อนุมัติ/ดูสถานะ · ระบบ HR แยก", icon: "calendar", className: "relationship-map-node node-system relationship-map-hr relationship-map-workspace", action: "hr", x: 954, y: 535, w: 270, h: 90 },
-    { id: "document-requests", name: "Document Requests", subtitle: "Admin/หัวหน้าสร้าง · Template ตามบริการ", icon: "clipboard-list", className: "relationship-map-node node-module relationship-map-channel", action: "upload", x: 24, y: 685, w: 270, h: 80 },
-    { id: "upload-link", name: "Direct Upload Link", subtitle: "ลิงก์บริษัท+คำขอ · ไม่ต้อง Login", icon: "upload-cloud", className: "relationship-map-node node-module relationship-map-channel", action: "upload", x: 334, y: 685, w: 270, h: 80 },
-    { id: "shared-documents", name: "Shared Documents + Status", subtitle: "ผูกบริษัท/คำขอ · แจ้งทีม · ลูกค้าดูสถานะใน Portal", icon: "layers", className: "relationship-map-node node-data relationship-map-shared", x: 644, y: 685, w: 270, h: 80 },
-    { id: "ai-classifier", name: "AI Document Classifier", subtitle: "คัดแยกเอกสาร · เชื่อม Upload/Document", badge: "อนาคต · ยังไม่ทำ", icon: "sparkles", className: "relationship-map-node node-worker relationship-map-future", x: 954, y: 685, w: 270, h: 80 },
+    { id: "landing", name: "Landing Page", subtitle: "หน้าแนะนำบริษัท • มีปุ่มเข้าสู่ระบบ", icon: "globe", className: "relationship-map-node node-system relationship-map-entry", href: "https://ckaceaccount.com/landing-page", x: 290, y: 42, w: 360, h: 74 },
+    { id: "app-shell", name: "แอปทำงาน · app.company.com", subtitle: "Login → ตรวจสิทธิ์ → เปิดพื้นที่ตามบทบาท", badge: "วางแผนไว้ • ยังไม่เปิดใช้งาน", icon: "shield", className: "relationship-map-node node-system relationship-map-app", x: 290, y: 158, w: 360, h: 76 },
+    { id: "login", name: "เข้าสู่ระบบ · Login", subtitle: "ลูกค้าและทีมงานใช้หน้าเดียว", badge: "ยังไม่เปิดใช้งาน", icon: "lock", className: "relationship-map-node node-worker relationship-map-planned relationship-map-login", x: 690, y: 96, w: 190, h: 82 },
+    { id: "client-portal", name: "Client Portal · ลูกค้า", subtitle: "บริษัทเดียวเข้าได้เลย • หลายบริษัทเลือกก่อน", icon: "user", className: "relationship-map-node node-module relationship-map-channel", action: "client", x: 26, y: 300, w: 270, h: 82 },
+    { id: "my-work", name: "My Work · ทีมงาน", subtitle: "พนักงานเห็นงานที่ได้รับ • หัวหน้าเห็นเฉพาะทีม", icon: "briefcase", className: "relationship-map-node node-module relationship-map-channel", x: 315, y: 300, w: 270, h: 82 },
+    { id: "team-admin", name: "Admin + หัวหน้าทีม", subtitle: "Admin ดูแลทุกทีม • หัวหน้าจัดงาน/สิทธิ์ในทีม", icon: "settings", className: "relationship-map-node node-worker relationship-map-crosscut", action: "admin", x: 604, y: 300, w: 270, h: 82 },
+    { id: "company-master", name: "ฐานบริษัทลูกค้า · Company Master", subtitle: "บริษัทละ 1 ชุดข้อมูล • ผู้ใช้หลายคน • สิทธิ์บัญชี/สอบแยก", icon: "building", className: "relationship-map-node node-data relationship-map-entity", x: 48, y: 426, w: 384, h: 82 },
+    { id: "contracts", name: "สัญญาและบริการ · Contract", subtitle: "เปิด/ปิดบริการตามวันที่ • อัปโหลดหรือสร้างและเซ็น", icon: "file-signature", className: "relationship-map-node node-module relationship-map-shared", x: 468, y: 426, w: 384, h: 82 },
+    { id: "office", name: "งานบัญชี · Office", subtitle: "บัญชี ภาษี เงินเดือน • วางระบบ/จดทะเบียนเป็นงานย่อย", icon: "calculator", className: "relationship-map-node node-system relationship-map-workspace", action: "office", x: 26, y: 562, w: 197, h: 82 },
+    { id: "audit", name: "งานสอบบัญชี · Audit", subtitle: "ทำงานสอบที่นี่ แม้บริษัทเดียวกันมีงานบัญชีใน Office", icon: "file", className: "relationship-map-node node-system relationship-map-workspace", action: "audit", x: 243, y: 562, w: 197, h: 82 },
+    { id: "employee-system", name: "ระบบพนักงาน · HR แยก", subtitle: "ข้อมูลทีมงาน • เปิดจากลิงก์ในแอป", icon: "users", className: "relationship-map-node node-system relationship-map-hr relationship-map-workspace", action: "hr", x: 460, y: 562, w: 197, h: 82 },
+    { id: "leave-system", name: "ระบบลางาน · HR แยก", subtitle: "ยื่นลา • อนุมัติ • ติดตามสถานะ", icon: "calendar", className: "relationship-map-node node-system relationship-map-hr relationship-map-workspace", action: "hr", x: 677, y: 562, w: 197, h: 82 },
+    { id: "document-requests", name: "คำขอเอกสาร", subtitle: "สร้างจาก Template ตามบริการ", icon: "clipboard-list", className: "relationship-map-node node-module relationship-map-channel", action: "upload", x: 26, y: 710, w: 197, h: 80 },
+    { id: "upload-link", name: "ลิงก์อัปโหลด", subtitle: "ลิงก์คำขอและลิงก์บริษัทแยกกัน • ไม่ต้อง Login", icon: "upload-cloud", className: "relationship-map-node node-module relationship-map-channel", action: "upload", x: 243, y: 710, w: 197, h: 80 },
+    { id: "shared-documents", name: "เอกสารและสถานะ", subtitle: "ผูกบริษัท/คำขอ • แจ้งทีม • ลูกค้าดูใน Portal", icon: "layers", className: "relationship-map-node node-data relationship-map-shared", x: 460, y: 710, w: 197, h: 80 },
+    { id: "ai-classifier", name: "AI คัดแยกเอกสาร", subtitle: "วางแผนเชื่อมกับ Upload/Document", badge: "อนาคต • ยังไม่ทำ", icon: "sparkles", className: "relationship-map-node node-worker relationship-map-future", x: 677, y: 710, w: 197, h: 80 },
   ];
   relationshipNodesById = Object.fromEntries(relationshipNodes.map((node) => [node.id, node]));
 
@@ -838,7 +838,7 @@ function renderRelationshipMap() {
         ? ` data-overview-select="${node.id}" tabindex="0" role="button" aria-label="ดูรายละเอียด ${node.name}"`
         : "";
       const linkAttributes = node.href
-        ? ` href="${node.href}" target="_blank" rel="noreferrer" aria-label="Open ${node.name} in a new tab"`
+        ? ` href="${node.href}" target="_blank" rel="noreferrer" aria-label="เปิด ${node.name} ในแท็บใหม่"`
         : "";
       const tagName = node.href ? "a" : "div";
       return `<${tagName} class="diagram-node ${node.className}" data-relationship-node-id="${node.id}" style="--x: ${node.x}px; --y: ${node.y}px; --w: ${node.w}px; --h: ${node.h}px"${actionAttributes}${linkAttributes}>
@@ -849,52 +849,58 @@ function renderRelationshipMap() {
     .join("");
 
   relationshipMapLayer.innerHTML = `
-    <svg class="diagram-connectors" viewBox="0 0 1280 810" role="img" aria-label="ภาพรวม Landing Page, App Shell, Login, พื้นที่ผู้ใช้, ฐานบริษัท, สัญญา, ระบบบัญชี สอบบัญชี พนักงาน ลางาน และเอกสาร">
+    <svg class="diagram-connectors" viewBox="0 0 900 850" role="img" aria-label="แผนภาพภาพรวม ตั้งแต่ Landing Page ผ่าน Login ไปยังพื้นที่ลูกค้าและทีมงาน ฐานบริษัท สัญญา งานบัญชี งานสอบ ระบบ HR และเอกสาร">
       <defs>
         <marker id="relationship-arrow-blue" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#2778dc"></path></marker>
         <marker id="relationship-arrow-teal" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#3c9ea9"></path></marker>
         <marker id="relationship-arrow-amber" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#efa72b"></path></marker>
       </defs>
 
-      <path class="connector connector-blue" d="M 650 107 V 165" marker-end="url(#relationship-arrow-blue)"></path>
-      <path class="connector connector-blue relationship-connector-dashed" d="M 1000 136 H 650" marker-end="url(#relationship-arrow-blue)"></path>
+      <path class="connector connector-blue" d="M 470 116 V 158" marker-end="url(#relationship-arrow-blue)"></path>
+      <path class="connector connector-blue relationship-connector-dashed" d="M 690 137 H 470" marker-end="url(#relationship-arrow-blue)"></path>
 
-      <path class="connector connector-blue" d="M 650 247 V 263"></path>
-      <path class="connector connector-blue" d="M 204 263 H 1076"></path>
-      <path class="connector connector-blue" d="M 204 263 V 280" marker-end="url(#relationship-arrow-blue)"></path>
-      <path class="connector connector-blue" d="M 640 263 V 280" marker-end="url(#relationship-arrow-blue)"></path>
-      <path class="connector connector-blue" d="M 1076 263 V 280" marker-end="url(#relationship-arrow-blue)"></path>
+      <path class="connector connector-blue" d="M 470 234 V 282"></path>
+      <path class="connector connector-blue" d="M 161 282 H 739"></path>
+      <path class="connector connector-blue" d="M 161 282 V 300" marker-end="url(#relationship-arrow-blue)"></path>
+      <path class="connector connector-blue" d="M 450 282 V 300" marker-end="url(#relationship-arrow-blue)"></path>
+      <path class="connector connector-blue" d="M 739 282 V 300" marker-end="url(#relationship-arrow-blue)"></path>
 
-      <path class="connector connector-teal relationship-connector-dashed" d="M 204 360 V 370 H 8 V 440 H 24" marker-end="url(#relationship-arrow-teal)"></path>
-      <path class="connector connector-teal" d="M 384 440 H 460" marker-end="url(#relationship-arrow-teal)"></path>
-      <path class="connector connector-amber" d="M 1076 360 V 385 H 640 V 400" marker-end="url(#relationship-arrow-amber)"></path>
+      <path class="connector connector-teal" d="M 296 341 H 312 V 410 H 240 V 426" marker-end="url(#relationship-arrow-teal)"></path>
+      <path class="connector connector-amber" d="M 739 382 V 410 H 660 V 426" marker-end="url(#relationship-arrow-amber)"></path>
+      <path class="connector connector-teal" d="M 432 467 H 468" marker-end="url(#relationship-arrow-teal)"></path>
 
-      <path class="connector connector-blue relationship-connector-dashed" d="M 640 360 V 369 H 1270 V 512 H 934 V 580" marker-end="url(#relationship-arrow-blue)"></path>
-      <path class="connector connector-blue" d="M 914 580 H 954"></path>
-      <path class="connector connector-blue" d="M 640 480 V 512 H 159 V 535" marker-end="url(#relationship-arrow-blue)"></path>
-      <path class="connector connector-amber" d="M 640 480 V 512 H 469 V 535" marker-end="url(#relationship-arrow-amber)"></path>
+      <path class="connector connector-amber" d="M 660 508 V 544 H 125 V 562" marker-end="url(#relationship-arrow-amber)"></path>
+      <path class="connector connector-amber" d="M 660 544 H 342 V 562" marker-end="url(#relationship-arrow-amber)"></path>
+      <path class="connector connector-blue relationship-connector-dashed" d="M 650 196 H 888 V 550 H 558 V 562" marker-end="url(#relationship-arrow-blue)"></path>
+      <path class="connector connector-blue" d="M 657 603 H 677" marker-end="url(#relationship-arrow-blue)"></path>
 
-      <path class="connector connector-teal" d="M 159 625 V 645 H 469"></path>
-      <path class="connector connector-teal" d="M 469 625 V 645 H 779 V 685" marker-end="url(#relationship-arrow-teal)"></path>
-      <path class="connector connector-blue" d="M 294 725 H 334" marker-end="url(#relationship-arrow-blue)"></path>
-      <path class="connector connector-blue" d="M 604 725 H 644" marker-end="url(#relationship-arrow-blue)"></path>
-      <path class="connector connector-amber relationship-connector-dashed" d="M 914 725 H 954" marker-end="url(#relationship-arrow-amber)"></path>
-      <path class="connector connector-teal relationship-connector-dashed" d="M 779 765 V 785 H 8 V 320 H 24" marker-end="url(#relationship-arrow-teal)"></path>
+      <path class="connector connector-teal" d="M 125 644 V 690 H 558 V 710" marker-end="url(#relationship-arrow-teal)"></path>
+      <path class="connector connector-teal" d="M 342 644 V 690 H 558" marker-end="url(#relationship-arrow-teal)"></path>
+      <path class="connector connector-blue" d="M 223 750 H 243" marker-end="url(#relationship-arrow-blue)"></path>
+      <path class="connector connector-teal" d="M 440 750 H 460" marker-end="url(#relationship-arrow-teal)"></path>
+      <path class="connector connector-amber relationship-connector-dashed" d="M 657 750 H 677" marker-end="url(#relationship-arrow-amber)"></path>
+      <path class="connector connector-teal" d="M 558 790 V 824 H 12 V 341 H 26" marker-end="url(#relationship-arrow-teal)"></path>
     </svg>
 
-    <div class="relationship-map-section" style="--x: 24px; --y: 8px">01 · ENTRY & ACCESS</div>
-    <div class="relationship-map-guide">คลิกกล่องเพื่อดูรายละเอียด · ปุ่ม i สำหรับ Landing Page</div>
-    <div class="relationship-map-section" style="--x: 24px; --y: 253px">02 · USER AREAS</div>
-    <div class="relationship-map-section" style="--x: 24px; --y: 375px">03 · SHARED COMPANY & CONTRACT</div>
-    <div class="relationship-map-section" style="--x: 24px; --y: 495px">04 · ACCOUNTING / AUDIT / HR SYSTEMS</div>
-    <div class="relationship-map-section" style="--x: 24px; --y: 655px">05 · DOCUMENT FLOW & FUTURE</div>
+    <div class="relationship-map-section" style="--x: 26px; --y: 12px">หน้าเว็บไซต์และทางเข้า</div>
+    <div class="relationship-map-guide">คลิกกล่องเพื่อดูหน้าที่และรายละเอียด</div>
+    <div class="relationship-map-section" style="--x: 26px; --y: 250px">พื้นที่หลัง Login แยกตามสิทธิ์</div>
+    <div class="relationship-map-section" style="--x: 26px; --y: 397px">ฐานบริษัทและสัญญาบริการ</div>
+    <div class="relationship-map-label is-amber" style="--x: 300px; --y: 512px">ถ้าใช้ทั้งสองบริการ: งานบัญชี → Office • งานสอบ → Audit</div>
+    <div class="relationship-map-section" style="--x: 26px; --y: 526px">ระบบทำงาน • HR เปิดแยก</div>
+    <div class="relationship-map-section" style="--x: 26px; --y: 670px">คำขอเอกสารและการติดตาม</div>
+    <div class="relationship-map-legend" aria-label="ความหมายของเส้นเชื่อม">
+      <span class="relationship-legend-item"><i class="relationship-legend-line is-blue"></i>เข้าใช้และส่งต่องาน</span>
+      <span class="relationship-legend-item"><i class="relationship-legend-line is-teal"></i>ข้อมูลและเอกสารร่วม</span>
+      <span class="relationship-legend-item"><i class="relationship-legend-line is-amber"></i>บริการตามสัญญา</span>
+      <span class="relationship-legend-item"><i class="relationship-legend-line is-dashed"></i>ระบบแยกหรือแผนอนาคต</span>
+    </div>
     ${nodeMarkup}
   `;
-  relationshipMapLayer.dataset.mapWidth = "1280";
-  relationshipMapLayer.dataset.mapHeight = "810";
+  relationshipMapLayer.dataset.mapWidth = "900";
+  relationshipMapLayer.dataset.mapHeight = "850";
   hydrateIcons(relationshipMapLayer);
 }
-
 function renderModuleDetails(node) {
   const relatedIds = [...new Set([...(node.upstream || []), ...(node.downstream || [])])];
   const related = relatedIds.length
@@ -1120,12 +1126,12 @@ function updateTransform(animate = true) {
 }
 
 function minimumZoom() {
-  return window.innerWidth <= 640 ? 0.32 : 0.55;
+  return canvasViewport.clientWidth <= 640 ? 0.32 : 0.55;
 }
 
 function fitDiagram(animate = true) {
-  const availableWidth = Math.max(window.innerWidth <= 640 ? 260 : 360, canvasViewport.clientWidth - 48);
-  const availableHeight = Math.max(420, canvasViewport.clientHeight - 48);
+  const availableWidth = Math.max(160, canvasViewport.clientWidth - 48);
+  const availableHeight = Math.max(220, canvasViewport.clientHeight - 48);
   const activeMap = [relationshipMapLayer, officeMapLayer, moduleMapLayer, mapLayer].find((layer) => layer && !layer.hidden);
   const mapWidth = Number(activeMap?.dataset.mapWidth) || 920;
   const mapHeight = Number(activeMap?.dataset.mapHeight) || 760;
@@ -1134,7 +1140,6 @@ function fitDiagram(animate = true) {
   panY = 0;
   updateTransform(animate);
 }
-
 function setInspectorTab(tab) {
   inspectorTab = tab;
   document.querySelectorAll("[data-inspector-tab]").forEach((tabButton) => {
@@ -1186,16 +1191,19 @@ function setView(view, announce = true) {
 
 function filterNodes(query) {
   const normalized = query.trim().toLowerCase();
-  const diagramNodes = document.querySelectorAll("[data-node-id]");
+  const diagramNodes = [
+    ...document.querySelectorAll("[data-node-id]"),
+    ...document.querySelectorAll("[data-relationship-node-id]"),
+  ];
   diagramNodes.forEach((nodeElement) => {
-    const node = nodes[nodeElement.dataset.nodeId];
-    const searchable = `${node.name} ${node.role} ${node.route} ${node.purpose}`.toLowerCase();
+    const nodeId = nodeElement.dataset.nodeId || nodeElement.dataset.relationshipNodeId;
+    const node = nodes[nodeId] || officeNodes[nodeId] || getModuleNode(nodeId) || relationshipNodesById[nodeId];
+    const searchable = node ? `${node.name || ""} ${node.subtitle || ""} ${node.role || ""} ${node.route || ""} ${node.purpose || ""}`.toLowerCase() : "";
     const match = normalized.length > 0 && searchable.includes(normalized);
     nodeElement.classList.toggle("search-dim", normalized.length > 0 && !match);
     nodeElement.classList.toggle("search-match", match);
   });
 }
-
 function exportArchitecture() {
   const payload = {
     generatedAt: new Date().toISOString(),
