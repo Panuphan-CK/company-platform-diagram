@@ -574,7 +574,7 @@ input:focus-visible,
 
 .relationship-map-layer {
   width: 900px;
-  height: 850px;
+  height: 790px;
 }
 
 .canvas-viewport.is-dragging .map-layer,
@@ -1802,7 +1802,7 @@ a.relationship-map-node {
 .relationship-map-legend {
   position: absolute;
   left: 26px;
-  top: 800px;
+  top: 742px;
   z-index: 2;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
