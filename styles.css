@@ -573,8 +573,8 @@ input:focus-visible,
 }
 
 .relationship-map-layer {
-  width: 1280px;
-  height: 810px;
+  width: 900px;
+  height: 850px;
 }
 
 .canvas-viewport.is-dragging .map-layer,
